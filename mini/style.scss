@@ -3,6 +3,7 @@ $secondary-color: #0d0d0d; /* black color */
 $element-primary-color: #f39c12; /* light oranfge color */
 $element-secondary-color: #e74c3c; /* dark orange color */
 $gray_font: #737373;
+$light_gray:#e6e6e6;
 
 body, html {
   background:$primary-color;
@@ -177,7 +178,7 @@ transform: rotate3d(0,0,1,-3deg);}
   display:flex;
   padding-bottom:125px;
   margin-bottom:125px;
-  border-bottom: 1px solid $gray_font;
+  border-bottom: 2px solid $light_gray;
 }
 
 .our-story-icon {
@@ -322,7 +323,7 @@ transform: rotate3d(0,0,1,-3deg);}
   padding:20px;
   border-top: 4px solid $primary-color;
   &:hover {
-    background:darken($primary-color, 10%);;
+    background:darken($primary-color, 5%);
     border-top: 4px solid $element-primary-color;
 
     & .member-sep{
@@ -382,4 +383,202 @@ transform: rotate3d(0,0,1,-3deg);}
   & a:hover{
     color:$element-primary-color;
   }
+}
+
+/*----------------------- Our progress counters ------------------------------ */
+
+.progress-counters {
+  display:flex;
+  justify-content:space-between;
+  padding-top:15%;
+}
+
+.counter-ico {
+  min-width:170px;
+  min-height:170px;
+  border: 2px solid $element-primary-color;
+  border-radius:50%;
+  line-height: 170px;
+  text-align:center;
+  color: $primary-color;
+  font-size:40px;
+  margin-bottom:20px;
+}
+
+.progress-counter{
+  width:100%;
+  text-align:center;
+  font-size:40px;
+  font-weight:700;
+  display:block;
+  margin-bottom:-10px;
+}
+
+.progress-text{
+  width:100%;
+  text-align:center;
+  font-size:25px;
+  font-weight:700;
+  display:block;
+}
+
+.progress-counters > div:hover {
+  & .counter-ico {
+    border: 2px solid $primary-color;
+    color: $element-primary-color;
+  }
+}
+
+/*----------------------- Our service ------------------------------ */
+
+.service {
+  padding-bottom:120px;
+  border-bottom: 2px solid $light_gray;
+}
+
+.service-type {
+  padding:0 10px;
+}
+
+.service-ico {
+  min-width:105px;
+  min-height:105px;
+  max-width:105px;
+  max-height:105px;
+  margin:0 auto;
+  border: 2px solid $element-primary-color;
+  border-radius:50%;
+  line-height: 105px;
+  text-align:center;
+  font-size:30px;
+  margin-bottom:20px;
+  &:hover{
+    background:$element-primary-color;
+    color:$primary-color;
+  }
+}
+
+.service-type-name{
+  font-weight:700;
+  font-size:20px;
+  display:block;
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.service-text {
+  display:block;
+  text-align:center;
+  color: $gray_font;
+}
+
+.packege {
+  overflow:hidden;
+  margin-top:120px;
+}
+
+.packege-info{
+  float:left;
+  max-width: 320px;
+}
+
+.packege-info-ico {
+  width:120px;
+  height:120px;
+  border: 2px solid $element-primary-color;
+  border-radius:50%;
+  line-height: 120px;
+  text-align:center;
+  font-size:30px;
+  margin-bottom:20px;
+}
+
+.packege-info-title{
+  font-weight:700;
+  font-size:20px;
+  display:block;
+  margin-bottom:20px;
+}
+
+.packege-info-text{
+  color: $gray_font;
+}
+
+.packege-plan{
+  float:right;
+  border: 1px solid $light_gray;
+  display:flex;
+  width:700px;
+  text-align:center;
+}
+.column-1, .column-2, .column-3 {
+flex-grow:1;
+}
+
+.column-1, .column-2{
+  border-right:1px solid $light_gray;
+}
+
+.plan-header{
+  padding:25px 0;
+  font-weight:700;
+  text-transform:uppercase;
+  border-bottom:1px solid $light_gray;
+}
+
+.plan-sep{
+  width:50px;
+  height:2px;
+  background:$element-primary-color;
+  margin:10px auto;
+}
+
+.plan-descr1, .plan-descr2{
+  color:$gray_font;
+  padding:15px 0;
+  border-bottom:1px solid $light_gray;
+}
+
+.plan-descr1{
+  background:darken($primary-color, 3%);
+}
+
+.plan-purchase{
+  padding:30px 0;
+  background:darken($primary-color, 3%);
+}
+
+.btn-purchase {
+  display:block !important;
+  margin: 0 auto;
+  width:130px;
+  text-transform:uppercase;
+  height:40px;
+  background:none !important;
+  border: 2px solid $element-primary-color !important;
+  border-radius:0 !important;
+  font-weight:600 !important;
+  color:$secondary-color;
+  &:hover{
+    background:$element-primary-color !important;
+    color:$primary-color !important;
+  }
+}
+
+.column-2 > .plan-header {
+  background:$element-primary-color;
+  color:$primary-color;
+  & > .plan-sep {background:$primary-color;}
+}
+
+.column-2 > .plan-descr1{
+ background:darken($primary-color, 8%);
+}
+
+ .column-2 > .plan-purchase {
+  background:darken($primary-color, 8%);
+}
+
+.column-2 > .plan-descr2{
+  background:darken($primary-color, 4%);
 }

@@ -151,7 +151,7 @@ section {
   display: flex;
   padding-bottom: 125px;
   margin-bottom: 125px;
-  border-bottom: 1px solid #737373; }
+  border-bottom: 2px solid #e6e6e6; }
 
 .our-story-icon {
   font-size: 41px;
@@ -292,7 +292,7 @@ section {
   padding: 20px;
   border-top: 4px solid #fff; }
   .team-member:hover {
-    background: #e6e6e6;
+    background: #f2f2f2;
     border-top: 4px solid #f39c12; }
     .team-member:hover .member-sep {
       background: #e74c3c; }
@@ -344,3 +344,177 @@ section {
     text-align: center; }
   .member-cocial a:hover {
     color: #f39c12; }
+
+/*----------------------- Our progress counters ------------------------------ */
+.progress-counters {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-top: 15%; }
+
+.counter-ico {
+  min-width: 170px;
+  min-height: 170px;
+  border: 2px solid #f39c12;
+  border-radius: 50%;
+  line-height: 170px;
+  text-align: center;
+  color: #fff;
+  font-size: 40px;
+  margin-bottom: 20px; }
+
+.progress-counter {
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 700;
+  display: block;
+  margin-bottom: -10px; }
+
+.progress-text {
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  display: block; }
+
+.progress-counters > div:hover .counter-ico {
+  border: 2px solid #fff;
+  color: #f39c12; }
+
+/*----------------------- Our service ------------------------------ */
+.service {
+  padding-bottom: 120px;
+  border-bottom: 2px solid #e6e6e6; }
+
+.service-type {
+  padding: 0 10px; }
+
+.service-ico {
+  min-width: 105px;
+  min-height: 105px;
+  max-width: 105px;
+  max-height: 105px;
+  margin: 0 auto;
+  border: 2px solid #f39c12;
+  border-radius: 50%;
+  line-height: 105px;
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 20px; }
+  .service-ico:hover {
+    background: #f39c12;
+    color: #fff; }
+
+.service-type-name {
+  font-weight: 700;
+  font-size: 20px;
+  display: block;
+  text-align: center;
+  margin-bottom: 20px; }
+
+.service-text {
+  display: block;
+  text-align: center;
+  color: #737373; }
+
+.packege {
+  overflow: hidden;
+  margin-top: 120px; }
+
+.packege-info {
+  float: left;
+  max-width: 320px; }
+
+.packege-info-ico {
+  width: 120px;
+  height: 120px;
+  border: 2px solid #f39c12;
+  border-radius: 50%;
+  line-height: 120px;
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 20px; }
+
+.packege-info-title {
+  font-weight: 700;
+  font-size: 20px;
+  display: block;
+  margin-bottom: 20px; }
+
+.packege-info-text {
+  color: #737373; }
+
+.packege-plan {
+  float: right;
+  border: 1px solid #e6e6e6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 700px;
+  text-align: center; }
+
+.column-1, .column-2, .column-3 {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1; }
+
+.column-1, .column-2 {
+  border-right: 1px solid #e6e6e6; }
+
+.plan-header {
+  padding: 25px 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 1px solid #e6e6e6; }
+
+.plan-sep {
+  width: 50px;
+  height: 2px;
+  background: #f39c12;
+  margin: 10px auto; }
+
+.plan-descr1, .plan-descr2 {
+  color: #737373;
+  padding: 15px 0;
+  border-bottom: 1px solid #e6e6e6; }
+
+.plan-descr1 {
+  background: #f7f7f7; }
+
+.plan-purchase {
+  padding: 30px 0;
+  background: #f7f7f7; }
+
+.btn-purchase {
+  display: block !important;
+  margin: 0 auto;
+  width: 130px;
+  text-transform: uppercase;
+  height: 40px;
+  background: none !important;
+  border: 2px solid #f39c12 !important;
+  border-radius: 0 !important;
+  font-weight: 600 !important;
+  color: #0d0d0d; }
+  .btn-purchase:hover {
+    background: #f39c12 !important;
+    color: #fff !important; }
+
+.column-2 > .plan-header {
+  background: #f39c12;
+  color: #fff; }
+  .column-2 > .plan-header > .plan-sep {
+    background: #fff; }
+
+.column-2 > .plan-descr1 {
+  background: #ebebeb; }
+
+.column-2 > .plan-purchase {
+  background: #ebebeb; }
+
+.column-2 > .plan-descr2 {
+  background: whitesmoke; }
