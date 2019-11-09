@@ -518,3 +518,91 @@ section {
 
 .column-2 > .plan-descr2 {
   background: whitesmoke; }
+
+/*----------------------- Quote block 2 ------------------------------ */
+.carousel2 {
+  width: 100%; }
+  .carousel2 .quote-sep {
+    margin-top: 20px;
+    margin-bottom: 35px; }
+  .carousel2 .carousel-indicators {
+    bottom: -70px; }
+  .carousel2 p {
+    width: 770px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 300;
+    font-style: italic; }
+
+.quote2-avatar {
+  margin: 0 auto;
+  width: 110px;
+  height: 110px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  overflow: hidden; }
+  .quote2-avatar img {
+    width: 160px;
+    height: 130px;
+    border-radius: 50%;
+    margin-left: -30px; }
+
+/*----------------------- Our prtfolio ------------------------------ */
+.carusel3 {
+  padding-bottom: 200px;
+  border-bottom: 2px solid #e6e6e6; }
+
+.carusel3-dots {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: 550px; }
+
+.carusel3-dots > .carousel-indicators {
+  top: 50% !important;
+  right: 20px !important;
+  bottom: auto !important;
+  left: auto !important;
+  margin: 0 !important;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+  .carusel3-dots > .carousel-indicators li {
+    margin-bottom: 5px; }
+
+.carusel3-elem-title {
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 110px; }
+
+.carusel3-elem-description {
+  text-align: center;
+  color: #737373; }
+
+.slider3-controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 120px;
+  margin: 0 auto;
+  margin-top: -110px;
+  z-index: 100;
+  position: relative; }
+
+.slider3-button-prev, .slider3-button-next, .slider3-button-close {
+  width: 36px;
+  height: 36px;
+  line-height: 31px;
+  text-align: center;
+  color: #0d0d0d;
+  border: 2px solid #e6e6e6; }
+
+.slider3-button-prev:hover, .slider3-button-next:hover, .slider3-button-close:hover {
+  color: #f39c12;
+  border: 2px solid #f39c12; }

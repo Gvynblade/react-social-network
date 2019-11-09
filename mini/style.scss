@@ -582,3 +582,101 @@ flex-grow:1;
 .column-2 > .plan-descr2{
   background:darken($primary-color, 4%);
 }
+
+/*----------------------- Quote block 2 ------------------------------ */
+
+.carousel2{
+  width:100%;
+  & .quote-sep{
+    margin-top: 20px;
+    margin-bottom:35px;
+  }
+  & .carousel-indicators{
+    bottom:-70px;
+  }
+  & p{
+    width:770px;
+    margin:0 auto;
+    text-align:center;
+    margin-bottom:25px;
+    font-weight:300;
+    font-style:italic;
+  }
+}
+
+.quote2-avatar{
+  margin:0 auto;
+  width:110px;
+  height:110px;
+  border:2px solid $primary-color;
+  border-radius:50%;
+  overflow:hidden;
+  & img {
+    width:160px;
+    height:130px;
+    border-radius:50%;
+    margin-left:-30px;
+  }
+}
+
+/*----------------------- Our prtfolio ------------------------------ */
+
+.carusel3{
+  padding-bottom: 200px;
+  border-bottom: 2px solid $light_gray;
+}
+
+.carusel3-dots{
+  position: absolute;
+  z-index:100;
+  width:100%;
+  height:550px;
+}
+
+.carusel3-dots > .carousel-indicators{
+  top:50% !important;
+  right:20px !important;
+  bottom: auto !important;
+  left: auto !important;
+  margin: 0 !important;
+  flex-direction: column;
+  & li{
+    margin-bottom:5px;
+  }
+}
+
+.carusel3-elem-title{
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top:110px;
+}
+
+.carusel3-elem-description{
+  text-align: center;
+  color:$gray_font;
+}
+
+.slider3-controls{
+  display:flex;
+  justify-content: space-between;
+  width:120px;
+  margin: 0 auto;
+  margin-top:-110px;
+  z-index:100;
+  position:relative;
+}
+
+.slider3-button-prev, .slider3-button-next, .slider3-button-close{
+  width:36px;
+  height:36px;
+  line-height:31px;
+  text-align:center;
+  color:$secondary-color;
+  border:2px solid $light_gray;
+}
+
+.slider3-button-prev:hover, .slider3-button-next:hover, .slider3-button-close:hover{
+  color:$element-primary-color;
+  border:2px solid $element-primary-color;
+}
