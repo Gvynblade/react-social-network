@@ -44,6 +44,11 @@ header {
   & a:hover {color: $secondary-color;}
 }
 
+.navbar-toggler{
+  color:#fff !important;
+  font-size:30px !important;
+}
+
 .nav-link {
   padding:0 !important;
 }
@@ -846,9 +851,247 @@ color:$primary-color;
 
 /*----------------------- Our twitter quote ------------------------------ */
 
-.blog-img{
+.blog-entry-img{
   width:100%;
   height:300px;
-  background:gray;
-  margin-bottom:20px;
+  position:relative;
+  & img{
+    width:100%;
+    height:100%;
+  }
+}
+
+.blog-entry-header{
+  display:flex;
+  position:absolute;
+  width:100%;
+  bottom:0;
+}
+
+.entry-heading-col-1{
+  width:20%;
+  display:flex;
+  justify-content:flex-end;
+  align-items:flex-end;
+}
+
+.entry-heading-col-2{
+  width:80%;
+  background:$primary-color;
+  padding:25px 25px 5px 25px;
+
+}
+
+.blog-entry-category{
+  width:45px;
+  height:45px;
+  display:flex;
+  background:$element-primary-color;
+  & i{
+    margin:auto auto;
+    color:$primary-color;
+  }
+}
+
+.blog-entry-title a{
+  color:$secondary-color;
+  text-transform: uppercase;
+  font-size:20px;
+  font-weight:700;
+  &:hover{
+    text-decoration:none;
+    color:$element-primary-color;
+  }
+}
+
+.blog-entry-info{
+  display:flex;
+  width:100%;
+  margin-bottom:30px;
+}
+
+.entry-col-1{
+  width:20%;
+  padding-top:25px;
+  padding-right:10px;
+  & div{
+    text-align:right;
+    font-size:14px;
+    color:$gray_font;
+  }
+}
+
+.entry-col-2{
+  width:80%;
+}
+
+.blog-entry-text{
+  padding:25px;
+  color:$gray_font;
+}
+
+.blog-entry-button{
+  width:105px;
+  height:35px;
+  border: 2px solid $element-primary-color;
+  margin-left:25px;
+  display:block;
+  text-align:center;
+  line-height: 30px;
+  color:$secondary-color;
+  text-transform:uppercase;
+  font-weight:700;
+  font-size:14px;
+  &:hover{
+    background:$element-primary-color;
+    color:$primary-color;
+    text-decoration:none;
+  }
+
+}
+
+/*----------------------- Our clients logos ------------------------------ */
+
+.our-clients-title{
+  text-align:center;
+  font-size:30px;
+  text-transform:uppercase;
+  font-weight:bold;
+  margin-bottom:50px;
+}
+
+.our-clients-logos{
+  display:flex;
+  justify-content:space-between;
+}
+
+/*----------------------- Contact info ------------------------------ */
+
+.Contact{
+  width:100%;
+  display:flex;
+  justify-content: space-between;
+}
+
+.contact-column-1{
+  width:50%;
+}
+
+.contact-column-2{
+  width:45%;
+  & .contact-text{
+    margin-top:-5px;
+    color:$gray_font;
+  }
+}
+
+.contact-title{
+  font-size:20px;
+  font-weight:bold;
+  text-transform:uppercase;
+  margin-bottom:30px;
+}
+
+.contact-box-name{
+  display:flex;
+  border: 2px solid $light_gray;
+  padding:5px 20px;
+  margin-bottom:10px;
+  & input{
+    background:none;
+    border:none;
+    flex-grow: 1;
+  }
+  & i{
+    line-height:26px;
+    margin-left:10px;
+    color:$gray_font;
+  }
+}
+
+.contact-box-mail{
+  display:flex;
+  border: 2px solid $light_gray;
+  padding:5px 20px;
+  margin-bottom:10px;
+  & input{
+    background:none;
+    border:none;
+    flex-grow: 1;
+  }
+  & i{
+    line-height:26px;
+    margin-left:10px;
+    color:$gray_font;
+  }
+}
+
+.contact-box-text{
+  display:flex;
+  border: 2px solid $light_gray;
+  padding:5px 20px;
+  margin-bottom:10px;
+  & textarea{
+    background:none;
+    border:none;
+    flex-grow: 1;
+    resize: none;
+  }
+  & i{
+    line-height:26px;
+    margin-left:10px;
+    color:$gray_font;
+  }
+}
+
+.contact-box-name:hover, .contact-box-mail:hover, .contact-box-text:hover{
+  border: 2px solid $element-primary-color;
+  & i{
+    color: $element-primary-color;
+  }
+}
+
+.contact-box-button{
+  width:140px;
+  height:35px;
+  margin-top:20px;
+  border: 2px solid $element-primary-color;
+  text-transform:uppercase;
+  display:block;
+  text-align:center;
+  line-height: 30px;
+  color:$secondary-color;
+  font-weight:700;
+  font-size:14px;
+  &:hover{
+    background:$element-primary-color;
+    color:$primary-color;
+    text-decoration:none;
+  }
+}
+
+.contact-info{
+  display:flex;
+  width:100%;
+  flex-wrap:wrap;
+  margin-top:20px;
+  align-items:center;
+}
+
+.contact-ico{
+  width:10%;
+  padding-bottom:10px;
+  & i{
+  width:30px;
+  height:30px;
+  text-align:center;
+  line-height:27px;
+  border:2px solid $element-primary-color;
+  border-radius:50%;
+  }
+}
+
+.contact-textarea{
+  width:90%;
+  padding-bottom:10px;
 }
