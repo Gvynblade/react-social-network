@@ -1095,3 +1095,55 @@ color:$primary-color;
   width:90%;
   padding-bottom:10px;
 }
+
+/*----------------------- Map and footer ------------------------------ */
+.map{
+  margin:-100px 0;
+}
+
+footer{
+  margin: -110px 0 0 0;
+  padding: 180px 0 0 0;
+  overflow:hidden;
+}
+
+.footer{
+  width:100%;
+  position:relative;
+}
+
+.footer:before{
+position: absolute;
+left: -10px;
+top:-130px;
+width: 110%;
+height: 120px;
+padding: 0 10px;
+content: '';
+background: $primary-color;
+-webkit-transform: rotate3d(0,0,1,-3deg);
+transform: rotate3d(0,0,1,-3deg);}
+
+.footer-block{
+  z-index:5;
+  position:relative;
+  top:-40px;
+  display:flex;
+  justify-content:space-between;
+  width:100%;
+  align-items:center;
+}
+
+.footer-col-1{
+  font-weight:600;
+  font-size:14px;
+}
+
+.footer-col-2 a{
+  margin-left:15px;
+  font-size:22px;
+  color:$secondary-color;
+  &:hover{
+    color:$element-primary-color;
+  }
+}
