@@ -134,7 +134,10 @@ section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 150px; }
+  margin-bottom: 150px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
 
 .about-h1 {
   font-size: 23px;
@@ -184,18 +187,9 @@ section {
 .our-story-txt {
   color: #808080; }
 
-.our-story-img {
-  background: #e74c3c;
-  -webkit-box-flex: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex; }
-  .our-story-img i {
-    margin: auto auto;
-    font-size: 34px;
-    color: #fff; }
+.our-story-img img {
+  max-width: 450px;
+  height: auto; }
 
 /*----------------------- Our skills ------------------------------ */
 .our-skills {
@@ -532,7 +526,7 @@ section {
   .carousel2 .carousel-indicators {
     bottom: -70px; }
   .carousel2 p {
-    width: 770px;
+    width: 90%;
     margin: 0 auto;
     text-align: center;
     margin-bottom: 25px;
@@ -861,6 +855,9 @@ section {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between; }
+  .our-clients-logos img {
+    width: 100%;
+    height: auto; }
 
 /*----------------------- Contact info ------------------------------ */
 .Contact {
@@ -1041,3 +1038,131 @@ footer {
   color: #0d0d0d; }
   .footer-col-2 a:hover {
     color: #f39c12; }
+
+/*----------------------- Mobile frendly ------------------------------ */
+@media (max-width: 1000px) {
+  .about {
+    padding: 0; }
+  .our-story {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+  .our-story-icon {
+    margin: 0 auto;
+    margin-bottom: 20px; }
+  .our-story-text {
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 20px; }
+  .our-story-img {
+    margin: 0 auto; }
+  .our-skills {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+  .our-skills-text {
+    margin-left: 30px; }
+  .our-skills-img {
+    margin: 0 auto;
+    margin-bottom: 70px; }
+  .quote1-container {
+    margin: 35% auto; }
+  .progress-counters {
+    padding-top: 30%; }
+  .team {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+  .service-type {
+    margin-bottom: 40px; }
+  .counter-ico {
+    min-width: 100px;
+    min-height: 100px;
+    line-height: 100px;
+    font-size: 30px; }
+  .packege-info {
+    float: none;
+    max-width: 100%;
+    margin-bottom: 50px; }
+  .packege-info-ico, .packege-info-title, .packege-info-text {
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 20px; }
+  .packege-plan {
+    float: none;
+    margin: 0 auto; }
+  .works-elem-1, .works-elem-2 {
+    width: 270px;
+    margin: 0 auto; }
+  .our-twitter-quote {
+    padding-top: 30%; }
+  .Contact {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+  .contact-column-1 {
+    width: 100%;
+    margin-bottom: 40px; }
+  .contact-column-2 {
+    width: 100%; } }
+
+@media (max-width: 700px) {
+  .about {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+  .about-h1 {
+    width: 100%;
+    border-right: none;
+    border-bottom: 4px solid #f39c12;
+    padding: 0 0 5px 0;
+    margin: 0 0 15px 0;
+    text-align: center; }
+  .progress-counters {
+    padding-top: 45%; }
+  .packege-plan {
+    width: 100%; }
+  .our-twitter-quote {
+    padding-top: 45%; }
+  .our-clients-logos {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+  .our-client-logo {
+    width: 48%; } }
+
+@media (max-width: 400px) {
+  .our-story-text {
+    width: 100%; }
+  .our-story-img img {
+    width: 100%;
+    height: auto; }
+  .our-skills-img {
+    width: 100%; }
+  .our-skills-img img {
+    width: 100%;
+    height: auto; }
+  .quotation {
+    font-size: 50px; }
+  .quote1-text {
+    font-size: 30px; }
+  .team-member {
+    margin: 0 auto; }
+  .progress-counters {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+  .packege-plan {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+  .column-1, .column-2, .column-3 {
+    width: 100%; }
+  .footer-block {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+  .footer-col-1 {
+    text-align: center;
+    margin-bottom: 20px; } }
