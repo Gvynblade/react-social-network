@@ -453,7 +453,6 @@ a {
 /*-------------- Pet info --------------*/
 .pet-info {
   width: 566px;
-  height: 481px;
   overflow: hidden;
   background: #fff;
   padding: 30px;
@@ -588,7 +587,6 @@ a {
 /*-------------- Additionaly --------------*/
 .pet-additionally {
   width: 566px;
-  height: 136px;
   background: #fff;
   border-radius: 4px;
   overflow: hidden;
@@ -639,7 +637,6 @@ a {
 /*-------------- Delivery --------------*/
 .pet-delivery {
   width: 566px;
-  height: 184px;
   background: #fff;
   border-radius: 4px;
   overflow: hidden;
@@ -878,7 +875,6 @@ a {
 /*-------------- Documents 2 --------------*/
 .pet-documents2 {
   width: 272px;
-  height: 220px;
   overflow: hidden;
   background: #fff;
   border-radius: 4px;
