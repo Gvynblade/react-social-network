@@ -676,7 +676,8 @@ footer {
     text-transform: uppercase;
     font-weight: 500;
     color: #313131;
-    height: 60px; }
+    height: 60px;
+    cursor: pointer; }
     #mobile-menu img {
       margin-right: 20px; }
   .nav-arrow {
