@@ -34,11 +34,17 @@ html, body {
 
 .contact-info__phone_number {
   font-size: 24px;
-  font-weight: 300; }
+  font-weight: 300;
+  color: #313131;
+  display: block;
+  text-decoration: none; }
 
 .contact-info__mail {
   font-size: 17px;
-  margin-top: 10px; }
+  margin-top: 10px;
+  color: #313131;
+  display: block;
+  text-decoration: none; }
 
 .header__address {
   display: -webkit-box;
