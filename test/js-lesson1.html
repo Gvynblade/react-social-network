@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JS lesson 1</title>
+  <link rel="stylesheet" href="js-lesson1.css" />
+</head>
+<body>
+
+  <form id="border-form">
+
+    <h1>Изменяем border-radius ползунками</h1>
+
+    <input type="range" min="0" max="400" name="rtl" value="0" autocomplete="off">
+    <input type="text" name="ttl" value="0" autocomplete="off">
+    <input type="range" min="0" max="400" name="rtr" value="0" autocomplete="off">
+    <input type="text" name="ttr" value="0" autocomplete="off">
+    <input type="range" min="0" max="400" name="rbr" value="0" autocomplete="off">
+    <input type="text" name="tbr" value="0" autocomplete="off">
+    <input type="range" min="0" max="400" name="rbl" value="0" autocomplete="off">
+    <input type="text" name="tbl" value="0" autocomplete="off">
+
+  </form>
+
+  <div id="border-box"></div>
+
+  <h2>Перемещаем обьекты при клике на область</h2>
+
+  <div id="move-area">
+
+    <div class="move-item1"></div>
+    <div class="move-item2"></div>
+    <div class="move-item3"></div>
+    <div class="move-item4"></div>
+
+  </div>
+
+  <h2>Фильтрация списка при введении поискового запроса</h2>
+
+  <div class="search-filter">
+
+    <input type="text" name="search-filter__input" value="" autocomplete="off">
+
+    <ul id="search-filter__list">
+      <li class="search-filter__list__header"><a href="">А</a></li>
+      <li class="search-filter__list__item"><a href="">Анжела</a></li>
+      <li class="search-filter__list__item"><a href="">Анатолий</a></li>
+      <li class="search-filter__list__item"><a href="">Алиса</a></li>
+      <li class="search-filter__list__item"><a href="">Алексей</a></li>
+      <li class="search-filter__list__item"><a href="">Авыва</a></li>
+      <li class="search-filter__list__header"><a href="">Б</a></li>
+      <li class="search-filter__list__item"><a href="">Борис</a></li>
+      <li class="search-filter__list__item"><a href="">Билл</a></li>
+      <li class="search-filter__list__item"><a href="">Богдан</a></li>
+      <li class="search-filter__list__item"><a href="">Бетти</a></li>
+      <li class="search-filter__list__header"><a href="">В</a></li>
+      <li class="search-filter__list__item"><a href="">Виктория</a></li>
+      <li class="search-filter__list__item"><a href="">Валентина</a></li>
+      <li class="search-filter__list__item"><a href="">Виталий</a></li>
+      <li class="search-filter__list__item"><a href="">Владимир</a></li>
+      <li class="search-filter__list__item"><a href="">Варвара</a></li>
+      <li class="search-filter__list__header"><a href="">Г</a></li>
+      <li class="search-filter__list__item"><a href="">Галина</a></li>
+      <li class="search-filter__list__item"><a href="">Геннадий</a></li>
+      <li class="search-filter__list__item"><a href="">Георгий</a></li>
+      <li class="search-filter__list__item"><a href="">Гараж</a></li>
+      <li class="search-filter__list__item"><a href="">Гладиолус</a></li>
+      <li class="search-filter__list__header"><a href="">Д</a></li>
+      <li class="search-filter__list__item"><a href="">дыдыыды</a></li>
+    </ul>
+
+  </div>
+
+  <h2>Конвертер &#8381; / $</h2>
+
+  <div id="curr-converter">
+
+    <input type="number" id="currInput" autocomplete="off">
+    <select name="convType" id="convType">
+      <option>Перевести в доллары</option>
+      <option>Перевести в рубли</option>
+    </select>
+
+    <p id="convResult"></p>
+
+  </div>
+
+
+  <h2>Делаем график на canvas</h2>
+
+  <div class="block-canvas">
+    <canvas id="canvas">Обновите браузер</canvas>
+  </div>
+
+
+  <script src="js-lesson1.js"></script>
+</body>
+</html>

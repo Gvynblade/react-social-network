@@ -1,0 +1,93 @@
+  <!DOCTYPE html>
+  <html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Калькулятор стоимости сайта</title>
+    <link rel="stylesheet" href="calculator.css" />
+  </head>
+  <body>
+
+    <div class="container">
+
+      <header>
+        <h1>Выберите подходящий вам пакет</h1>
+      </header>
+
+      <div id="site-type" class="site-type">
+
+        <a href="#site-type-item1" class="site-type-item" data-site-type-cost="4000" data-img-src="https://pbs.twimg.com/media/DoKbhcYXkAIKNzk.jpg" title="Лендинг или сайт-визитка">
+          <img src="https://pbs.twimg.com/media/DoKbhcYXkAIKNzk.jpg" alt="Лендинг или сайт-визитка" />
+          <div class="site-type-item-title">
+            Лендинг или сайт-визитка
+          </div>
+        </a>
+        <a href="#site-type-item2" class="site-type-item" data-site-type-cost="12000" data-img-src="https://webmastera.studio/wp-content/uploads/2018/03/os-min.jpg" title="Интернет-магазин">
+          <img src="https://webmastera.studio/wp-content/uploads/2018/03/os-min.jpg" alt="Интернет-магазин" />
+          <div class="site-type-item-title">
+            Интернет-магазин
+          </div>
+        </a>
+        <a href="#site-type-item3" class="site-type-item" data-site-type-cost="10000" data-img-src="https://pbs.twimg.com/media/DxHL3YrUcAEeIKH.jpg" title="Корпоративный сайт">
+          <img src="https://pbs.twimg.com/media/DxHL3YrUcAEeIKH.jpg" alt="Корпоративный сайт" />
+          <div class="site-type-item-title">
+            Корпоративный сайт
+          </div>
+        </a>
+
+      </div>
+
+      <div class="flexbox">
+
+        <div id="site-additional">
+
+          <div class="site-additional-item">
+            <input type="checkbox" name="additional1" data-additional-type-cost="2000" value="Адаптивность под мобильные устройства"> Адаптивность под мобильные устройства
+          </div>
+
+          <div class="site-additional-item">
+            <input type="checkbox" name="additional2" data-additional-type-cost="500" value="Подключение сервисов статистики"> Подключение сервисов статистики
+          </div>
+
+          <div class="site-additional-item">
+            <input type="checkbox" name="additional3" data-additional-type-cost="300" value="Почта для домена"> Почта для домена
+          </div>
+
+          <div class="site-additional-item">
+            <input type="checkbox" name="additional4" data-additional-type-cost="700" value="Виджет обратного звонка"> Виджет обратного звонка
+          </div>
+
+        </div>
+
+        <div id="shopping-cart" class="shopping-cart">
+
+        <div class="shopping-cart-site-type-img">
+
+          <img src="https://pbs.twimg.com/media/DoKbhcYXkAIKNzk.jpg" alt="Лендинг или сайт-визитка" />
+
+        </div>
+
+        <div class="shopping-cart-site-type">Лендинг или сайт-визитка</div>
+
+        Выбранные дополнительные опции:
+
+        <ul id="shopping-cart-additional">
+        </ul>
+
+        <div class="shopping-cart-cost">
+          Цена: <span id="site-cost">4000</span> Руб.
+        </div>
+
+        <a href="#" class="shopping-cart-order">Сделать заказ</a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <script src="node_modules\jquery\dist\jquery.min.js"></script>
+    <script src="calculator.js"></script>
+  </body>
+  </html>
