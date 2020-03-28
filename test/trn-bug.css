@@ -1,7 +1,8 @@
 a {
   color: black;
-  -webkit-transition: color 10s;
-  -o-transition: color 10s;
-  transition: color 10s; }
+  -webkit-transition: color 15s;
+  -o-transition: color 15s;
+  transition: color 15s;
+  font-size: 30px; }
   a:hover {
     color: red; }

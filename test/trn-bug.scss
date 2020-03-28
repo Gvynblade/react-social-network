@@ -1,6 +1,7 @@
 a{
   color:black;
-  transition: color 10s;
+  transition: color 15s;
+  font-size:30px;
   &:hover{
     color:red;
   }
