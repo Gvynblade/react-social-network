@@ -1,0 +1,7 @@
+a {
+  color: black;
+  -webkit-transition: color 10s;
+  -o-transition: color 10s;
+  transition: color 10s; }
+  a:hover {
+    color: red; }

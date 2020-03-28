@@ -1,0 +1,7 @@
+a{
+  color:black;
+  transition: color 10s;
+  &:hover{
+    color:red;
+  }
+}
