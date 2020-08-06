@@ -58,10 +58,12 @@ input:active, textarea:active {outline:none;}
     line-height: 13px;
     display: block;
     margin-left: 27px;
-    &:hover{
-      color: $third-color;
-    }
   }
+
+  & .main-nav__link:hover{
+    color: $third-color;
+  }
+
 }
 
 .main-nav__logo{

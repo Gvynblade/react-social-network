@@ -51,8 +51,8 @@ input:active, textarea:active {
     line-height: 13px;
     display: block;
     margin-left: 27px; }
-    .main-nav a:hover {
-      color: #26C296; }
+  .main-nav .main-nav__link:hover {
+    color: #26C296; }
 
 .main-nav__logo {
   display: block;
