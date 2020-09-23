@@ -2,7 +2,8 @@
 @import url("fonts/oswald/stylesheet.css");
 /* ---- Base ---- */
 html {
-  scroll-behavior: smooth; }
+  scroll-behavior: smooth;
+  overflow-x: hidden; }
 
 body {
   margin: 0;
@@ -710,6 +711,8 @@ input:active, textarea:active {
     margin-bottom: 60px; } }
 
 @media (max-width: 410px) {
+  .our-services__item__ico1, .our-services__item__ico2 {
+    display: none; }
   #our-services__navlinks {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;

@@ -12,6 +12,7 @@ $border-color:#213a72;
 /* ---- Base ---- */
 html{
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body{
@@ -712,6 +713,11 @@ input:active, textarea:active {outline:none;}
 }
 
 @media ( max-width: 410px) {
+
+    .our-services__item__ico1, .our-services__item__ico2{
+        display: none;
+    }
+
     #our-services__navlinks{
         flex-direction: column;
         align-items: center;
