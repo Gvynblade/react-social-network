@@ -1,0 +1,9 @@
+.loginForm{
+    padding:10px;
+    border:1px solid white;
+}
+
+.loginForm__input{
+    display: block;
+    width:100%;
+}

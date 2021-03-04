@@ -1,0 +1,9 @@
+.dialogsItem{
+  background:#fff;
+  border: 1px solid #e6ecf5;
+  padding:20px;
+  display: block;
+  &:not(:last-child){
+    margin-bottom:10px;
+  }
+}

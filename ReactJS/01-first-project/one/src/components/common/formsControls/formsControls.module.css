@@ -1,0 +1,14 @@
+.formControl{
+    position: relative;
+    flex-grow: 1;
+}
+
+.formControl textarea {
+    width:100%;
+    height:100%;
+}
+
+.formControl.error input,
+.formControl.error textarea {
+    border: 2px solid red;
+}
