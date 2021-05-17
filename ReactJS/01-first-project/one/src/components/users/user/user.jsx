@@ -7,9 +7,9 @@ import Styles from './user.module.css'
 const User = ({user, followingInProgress, unFollow, follow}) => {
     return <div className={Styles.usersitem}>
 
-    <span>
+    <div className={Styles.usersitem__header}>
     <NavLink to={'/profile/' + user.id}>
-    <img src={user.photos.small != null ? user.photos.small: userNoPhoto} alt={`${user.name} avatar`} />
+    <img src={user.photos.small != null ? user.photos.large: userNoPhoto} alt={`${user.name} avatar`} />
     </NavLink>
 
 
@@ -22,13 +22,13 @@ const User = ({user, followingInProgress, unFollow, follow}) => {
             follow(user.id)
         }}>Follow</button>
     }
-    </span>
+    </div>
 
-    <span>
-    <div>{user.name}</div>
-    <div>{user.status}</div>
-    <div>{'u.location.country'}, {'u.location.city'}</div>
-    </span>
+    <div className={Styles.usersitem__info}>
+    <div className={Styles.usersitem__name}>{user.name}</div>
+    <div className={Styles.usersitem__status}>{user.status}</div>
+    <div className={Styles.usersitem__location}>{'u.location.country'}, {'u.location.city'}</div>
+    </div>
 
     </div>
 }

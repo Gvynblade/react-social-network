@@ -1,20 +1,14 @@
+import { stopSubmit } from 'redux-form';
+
 import { profileAPI } from '../api/api';
 
 const ADD_POST = 'profile-reducer/ADD-POST';
 const TOGGLE_IS_FETCHING = 'profile-reducer/TOGGLE_IS_FETCHING'
 const SET_USER_PROFILE = 'profile-reducer/SET_USER_PROFILE'
 const SET_STATUS = 'profile-reducer/SET_STATUS'
+const SET_NEW_AVATAR = 'profile-reducer/SET_NEW__AVATAR'
 
 const initialState = {
-
-    profileData:{
-
-        id: 1,
-        name: 'Урал Вагон Завод',
-        thumbnail: 'https://pravdaurfo.ru/sites/default/files/rabotnik-2.jpg',
-        ava: 'https://v-tagile.ru/media/k2/items/cache/3a87681a8365cb10ceb54d7831ccad1f_XL.jpg'
-
-    },
 
     profile: {
         defaultBgImg: 'https://d1lx3ohi20yyaq.cloudfront.net/file/pic/photo/2018/10/cab54266980bde39098ecd146f04761c_1024.jpg',
@@ -62,8 +56,8 @@ const profileReducer = (state = initialState, action) => {
                 postsData: [
                     {
                         id: state.postsData.length + 1,
-                        ava: state.profileData.ava,
-                        name: state.profileData.name,
+                        ava: state.profile.photos.small,
+                        name: state.profile.fullName,
                         date: Date(),
                         message: action.message
                     },
@@ -74,21 +68,18 @@ const profileReducer = (state = initialState, action) => {
 
         }
 
-        case TOGGLE_IS_FETCHING: {
-            return {
-                ...state, isFetching: action.isFetching
-            }
-        }
-
-        case SET_USER_PROFILE: {
-            return {
-                ...state, profile: {...state.profile, ...action.profile}
-            }
-        }
-
+        case TOGGLE_IS_FETCHING:
         case SET_STATUS: {
             return {
-                ...state, status: action.status
+                ...state, ...action.payload
+            }
+        }
+
+        case SET_USER_PROFILE:
+        case SET_NEW_AVATAR: {
+            debugger
+            return {
+                ...state, profile: {...state.profile, ...action.payload}
             }
         }
 
@@ -108,42 +99,88 @@ export const addPostActionCreator = (message) => ( {
 
 export const toggleIsFetching = (isFetching) => ({
     type: TOGGLE_IS_FETCHING,
-    isFetching
+    payload: { isFetching }
 })
 
 export const setUserProfile = (profile) => ({
     type: SET_USER_PROFILE,
-    profile
+    payload: { ...profile }
 })
 
 export const setUserStatus = (status) => ({
     type: SET_STATUS,
-    status
+    payload: { status }
 })
+
+export const setNewAvatar = (photos) => ({
+    type: SET_NEW_AVATAR,
+    payload: { photos }
+})
+
 
 // Thunk creators
 
 export const requestProfile = (userID) => async (dispatch) => {
-    dispatch(toggleIsFetching(true))
-    let response = await profileAPI.getProfile(userID)
-    dispatch(toggleIsFetching(false));
-    dispatch(setUserProfile(response));
+    try {
+        dispatch(toggleIsFetching(true))
+        let response = await profileAPI.getProfile(userID)
+        dispatch(toggleIsFetching(false));
+        dispatch(setUserProfile(response));
+    } catch (error) {
+        debugger
+    }
 }
 
 
 export const requestStatus = (userID) => async (dispatch) => {
-    dispatch(toggleIsFetching(true))
-    let response = await profileAPI.getStatus(userID)
-    dispatch(toggleIsFetching(false));
-    dispatch(setUserStatus(response));
+    try {
+        dispatch(toggleIsFetching(true))
+        let response = await profileAPI.getStatus(userID)
+        dispatch(toggleIsFetching(false));
+        dispatch(setUserStatus(response));
+    } catch (error) {
+        debugger
+    }
 }
 
 export const updateStatus = (status) => async (dispatch) => {
-    dispatch(toggleIsFetching(true))
-    let response = await profileAPI.updateStatus(status);
-    dispatch(toggleIsFetching(false));
-    if (response.resultCode === 0) {
-        dispatch(setUserStatus(status));
+    try {
+        dispatch(toggleIsFetching(true))
+        let response = await profileAPI.updateStatus(status);
+        dispatch(toggleIsFetching(false));
+        if (response.resultCode === 0) {
+            dispatch(setUserStatus(status));
+        }
+    } catch (error) {
+        debugger
+    }
+}
+
+export const saveUserAvatar = (file, userID) => async (dispatch) => {
+    try {
+        dispatch(toggleIsFetching(true))
+        let response = await profileAPI.updateAvatar(file);
+        if (response.resultCode === 0) {
+            dispatch(setNewAvatar(response.data.photos));
+        }
+    } catch (error) {
+        debugger
+    }
+}
+
+export const updateSettings = (newProfileData) => async (dispatch, getState) => {
+    try {
+        const userID = getState().auth.id;
+        let response = await profileAPI.updateProfile(newProfileData);
+        if (response.resultCode === 0) {
+            dispatch(requestProfile(userID))
+        } else {
+            let message = response.messages.length > 0 ? response.messages[0] : "some error"
+            let action = stopSubmit('settingsForm', {_error: message})
+            dispatch(action)
+        }
+    } catch (error) {
+        debugger
     }
 }
 

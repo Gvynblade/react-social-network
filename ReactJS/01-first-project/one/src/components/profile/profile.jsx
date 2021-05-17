@@ -12,9 +12,9 @@ const Profile = (props) => {
 
         <main className={Styles.profile}>
 
-            <ProfileInfo profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
+            <ProfileInfo profile={props.profile} status={props.status} updateStatus={props.updateStatus} isOwner={props.isOwner} saveUserAvatar={props.saveUserAvatar}/>
 
-            <MyPostsContainer />
+            <MyPostsContainer isOwner={props.isOwner} />
 
         </main>
     )

@@ -1,12 +1,28 @@
 .pagination{
     width:100%;
+    display: flex;
+    justify-content: space-between;
 }
 
-.pagination span {
-    display: inline-block;
+.pagination__pagesBlock{
+    flex-grow: 1;
+    margin: 0 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination__pagebutton {
     padding: 10px;
+    background: rgba(255,255,255,0.7);
+    margin: 0 5px;
 }
 
-.selectedPaginationPage{
+.pagination__pagebutton:hover{
+    cursor: pointer;
+}
+
+.pagination__selectedPage{
     font-weight: bold;
+    background: #3f4257;
+    color:white
 }

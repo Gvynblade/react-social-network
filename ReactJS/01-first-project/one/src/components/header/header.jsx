@@ -31,7 +31,7 @@ const Header = (props) => {
 
                     <div className={Styles.profileName}>
 
-                        {props.login}
+                        {props.profile.fullName}
 
                     </div>
 

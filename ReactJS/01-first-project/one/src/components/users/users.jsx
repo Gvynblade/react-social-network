@@ -14,7 +14,7 @@ const Users = (props) => {
             currentPage={props.currentPage}
             onPageChanged={props.onPageChanged}/>
 
-        <div className={Styles.users}>
+        <div className={Styles.users__list}>
 
             {props.users.map( u => <User
                 key={u.id}

@@ -28,17 +28,22 @@ const appReducer = (state = initialState, action) => {
 }
 
 // action crators
-export const initoalizingSuccess = () => ( {
+export const initializingSuccess = () => ( {
     type: SET_INITIALIZED
 } )
 
 // Thunk creators
 
 export const initializeAPP = () => (dispatch) => {
-    let promise = dispatch(getAuthUser())
-    Promise.all([promise]).then( () => {
-        dispatch(initoalizingSuccess())
-    })
+
+    try {
+        let promise = dispatch(getAuthUser())
+        Promise.all([promise]).then( () => {
+            dispatch(initializingSuccess())
+        })
+    } catch (error) {
+        debugger
+    }
 }
 
 export default appReducer;

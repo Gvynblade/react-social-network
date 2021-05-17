@@ -11,11 +11,13 @@ const ProfileStatusWithHooks = (props) => {
     }, [props.status])
 
     const toggleEditMode = () => {
-        if (editMode) {
-            setEditMode(false)
-            props.updateStatus(Status)
-        } else {
-            setEditMode(true)
+        if (props.isOwner) {
+            if (editMode) {
+                setEditMode(false)
+                props.updateStatus(Status)
+            } else {
+                setEditMode(true)
+            }
         }
     }
 
@@ -29,7 +31,7 @@ const ProfileStatusWithHooks = (props) => {
             {editMode ?
                 <input className={Styles.Status__edit} onChange={onStatusChange} autoFocus={true} value={Status} onBlur={ toggleEditMode}/>
                 :
-                <div className={Styles.Status__block} onDoubleClick={toggleEditMode}>{props.status ? props.status : "Ведите ваш статус"}</div>
+                <div className={Styles.Status__block} onDoubleClick={toggleEditMode}>{props.status ? props.status : props.isOwner ? "Ведите ваш статус" : null}</div>
             }
         </div>
     )

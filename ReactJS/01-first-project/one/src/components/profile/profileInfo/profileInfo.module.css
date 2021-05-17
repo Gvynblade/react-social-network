@@ -21,9 +21,52 @@
 }
 
 .profileInfo__photo{
+    position:relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.profileInfo__photoUploadWrapper{
+    position: absolute;
+    opacity: 0;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background: rgba(0,0,0, 0.6);
+    transition: 1s opacity;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profileInfo__photoUploadWrapper:hover{
+    opacity: 1;
+}
+
+.profileInfo__photoUploadWrapper:before{
+    content: 'Загрузить...';
+    color:white;
+    z-index:30;
+    pointer-events: none;
+}
+
+.profileInfo__photoUploadForm{
+    position: absolute;
+    opacity:0;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+}
+
+.profileInfo__photoUploadForm:hover{
+    cursor: pointer;
+}
+
+.profileInfo__photo img{
     width:100px;
     height:100px;
-    border-radius: 50%;
     object-fit: cover;
 }
 

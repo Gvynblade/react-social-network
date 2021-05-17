@@ -1,0 +1,27 @@
+.settings{
+    background: white;
+    padding:20px;
+    border: 1px solid #e6ecf5;
+}
+
+.settings h1{
+    margin-top:0;
+}
+
+.settingsForm__input{
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.settingsForm__button{
+    padding: 10px 15px;
+    background: #3f4257;
+    color: white;
+    border: none;
+}
+
+.settingsForm__button:hover{
+    cursor: pointer;
+}

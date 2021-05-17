@@ -1,0 +1,32 @@
+.usersitem{
+    max-width: 22%;
+    margin-top:30px;
+    overflow: hidden;
+}
+
+.usersitem__header{
+    display: flex;
+    flex-direction: column;
+}
+
+.usersitem__header img{
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+    margin-bottom:10px;
+    width:150px;
+    height:150px;
+    border-radius:50%;
+}
+
+.usersitem__info{
+    margin-top:10px;
+}
+
+.usersitem__name, .usersitem__status, .usersitem__location{
+    text-align: center;
+}
+
+.usersitem__status{
+    overflow-wrap: break-word;
+}

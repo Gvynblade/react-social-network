@@ -11,8 +11,8 @@ const instance = axios.create({
 
 export const authAPI = {
 
-    login (email, password, rememberMe = false) {
-        return instance.post(`auth/login`, {email, password, rememberMe}).then (response => response.data);
+    login (email, password, rememberMe = false, captcha) {
+        return instance.post(`auth/login`, {email, password, rememberMe, captcha}).then (response => response.data);
     },
     logout () {
         return instance.delete(`auth/login`).then (response => response.data);
@@ -49,5 +49,23 @@ export const profileAPI = {
     },
     updateStatus(status) {
         return instance.put(`profile/status/`, {status : status}).then (response => response.data);
+    },
+    updateAvatar(file) {
+        const formData = new FormData();
+        formData.append("image", file)
+        return instance.put(`profile/photo/`, formData, {
+            headers: {
+                'Content-Type' : 'multipart/form-data'
+            }
+        }).then (response => response.data);
+    },
+    updateProfile(newProfileData) {
+        return instance.put(`profile/`, newProfileData).then (response => response.data);
     }
+}
+
+export const securityAPI = {
+    getCaptcha () {
+        return instance.get(`security/get-captcha-url/`).then (response => response.data);
+    },
 }
