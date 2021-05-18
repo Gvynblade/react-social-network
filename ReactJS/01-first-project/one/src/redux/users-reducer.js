@@ -1,12 +1,12 @@
 import { updateOnjectInArray } from '../utils/helpers/object-helpers';
 import { usersAPI } from '../api/api';
+import { toggleIsFetching } from './app-reducer';
 
 const FOLLOW = 'users-reducer/FOLLOW';
 const UNFOLLOW = 'users-reducer/UNFOLLOW';
 const SET_USERS = 'users-reducer/SET-USERS'
 const SET_CURRENT_PAGE = 'users-reducer/SET_CURRENT_PAGE'
 const SET_TOTAL_USERS_COUNT = 'users-reducer/SET_TOTAL_USERS_COUNT'
-const TOGGLE_IS_FETCHING = 'users-reducer/TOGGLE_IS_FETCHING'
 const TOGGLE_IS_FOLLOWING_PROGRESS = 'users-reducer/TOGGLE_IS_FOLLOWING_PROGRESS'
 
 const initialState = {
@@ -14,7 +14,6 @@ const initialState = {
     pageSize: 40,
     totalUsersCount: 0,
     currentPage: 1,
-    isFetching: false,
     followingInProgress: []
 };
 
@@ -33,8 +32,7 @@ const usersReducer = (state = initialState, action) => {
 
         case SET_USERS:
         case SET_CURRENT_PAGE:
-        case SET_TOTAL_USERS_COUNT:
-        case TOGGLE_IS_FETCHING: {
+        case SET_TOTAL_USERS_COUNT: {
             return {
                 ...state, ...action.payload
             }
@@ -80,11 +78,6 @@ export const setCurrentPage = (currentPage) => ({
 export const setTotalUsersCount = (totalUsersCount) => ({
     type: SET_TOTAL_USERS_COUNT,
     payload: { totalUsersCount }
-})
-
-export const toggleIsFetching = (isFetching) => ({
-    type: TOGGLE_IS_FETCHING,
-    payload: { isFetching }
 })
 
 export const toggleIsFollowing = (isFetching, userID) => ({

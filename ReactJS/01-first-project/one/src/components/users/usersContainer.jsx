@@ -11,13 +11,13 @@ import {
 import {
   getCurrentPage,
   getFollowingInProgress,
-  getIsFetching,
   getPageSize,
   getTotalUsersCount,
   getUsers
 } from '../../redux/user-selectors';
 import Preloader from '../common/preloader/preloader';
 import Users from './users';
+import { getIsFetching } from '../../redux/app-selectors'
 
 
 class UsersContainer extends React.Component {

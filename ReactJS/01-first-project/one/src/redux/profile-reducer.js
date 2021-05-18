@@ -1,9 +1,9 @@
-import { stopSubmit } from 'redux-form';
 
 import { profileAPI } from '../api/api';
 
+import { toggleIsFetching } from './app-reducer';
+
 const ADD_POST = 'profile-reducer/ADD-POST';
-const TOGGLE_IS_FETCHING = 'profile-reducer/TOGGLE_IS_FETCHING'
 const SET_USER_PROFILE = 'profile-reducer/SET_USER_PROFILE'
 const SET_STATUS = 'profile-reducer/SET_STATUS'
 const SET_NEW_AVATAR = 'profile-reducer/SET_NEW__AVATAR'
@@ -68,7 +68,6 @@ const profileReducer = (state = initialState, action) => {
 
         }
 
-        case TOGGLE_IS_FETCHING:
         case SET_STATUS: {
             return {
                 ...state, ...action.payload
@@ -77,7 +76,6 @@ const profileReducer = (state = initialState, action) => {
 
         case SET_USER_PROFILE:
         case SET_NEW_AVATAR: {
-            debugger
             return {
                 ...state, profile: {...state.profile, ...action.payload}
             }
@@ -96,11 +94,6 @@ export const addPostActionCreator = (message) => ( {
     type: ADD_POST,
     message
 } )
-
-export const toggleIsFetching = (isFetching) => ({
-    type: TOGGLE_IS_FETCHING,
-    payload: { isFetching }
-})
 
 export const setUserProfile = (profile) => ({
     type: SET_USER_PROFILE,
@@ -162,22 +155,6 @@ export const saveUserAvatar = (file, userID) => async (dispatch) => {
         let response = await profileAPI.updateAvatar(file);
         if (response.resultCode === 0) {
             dispatch(setNewAvatar(response.data.photos));
-        }
-    } catch (error) {
-        debugger
-    }
-}
-
-export const updateSettings = (newProfileData) => async (dispatch, getState) => {
-    try {
-        const userID = getState().auth.id;
-        let response = await profileAPI.updateProfile(newProfileData);
-        if (response.resultCode === 0) {
-            dispatch(requestProfile(userID))
-        } else {
-            let message = response.messages.length > 0 ? response.messages[0] : "some error"
-            let action = stopSubmit('settingsForm', {_error: message})
-            dispatch(action)
         }
     } catch (error) {
         debugger

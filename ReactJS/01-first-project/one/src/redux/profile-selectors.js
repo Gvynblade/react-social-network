@@ -2,10 +2,10 @@ export const getProfile = (state) => {
     return state.profilePage.profile
 }
 
-export const getStatus = (state) => {
+export const getProfileStatus = (state) => {
     return state.profilePage.status
 }
 
-export const getAuthUserID = (state) => {
-    return state.auth.id
+export const getProfilePosts = (state) => {
+    return state.profilePage.postsData
 }

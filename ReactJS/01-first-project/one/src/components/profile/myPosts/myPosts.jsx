@@ -12,8 +12,6 @@ const MyPosts = React.memo( props => {
     } else {
 
         let postsElements = props.myPosts.map( (p) => {
-
-
             return (
                 <Post
                     key={p.id}
@@ -26,17 +24,17 @@ const MyPosts = React.memo( props => {
             )
         });
 
-            return <div>
+        return <div>
 
-                {props.isOwner && <NewPost
-                    ava={props.myProfile.photos.small ? props.myProfile.photos.small : userNoPhoto }
-                    name={props.myProfile.fullName}
-                    addPost={props.addPost}
-                /> }
+            {props.isOwner && <NewPost
+                ava={props.myProfile.photos.small ? props.myProfile.photos.small : userNoPhoto }
+                name={props.myProfile.fullName}
+                addPost={props.addPost}
+            /> }
 
-                {postsElements}
+            {postsElements}
 
-            </div>
+        </div>
 
     }
 

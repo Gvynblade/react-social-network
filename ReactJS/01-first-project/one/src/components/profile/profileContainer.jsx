@@ -4,10 +4,10 @@ import { withRouter } from 'react-router-dom';
 import React from 'react';
 
 import {
-  getAuthUserID,
   getProfile,
-  getStatus
+  getProfileStatus
 } from '../../redux/profile-selectors';
+import { getAuthID } from '../../redux/auth-selectors'
 import {
   requestProfile,
   requestStatus,
@@ -57,8 +57,8 @@ let mapStateToProps = (state) => {
 
   return {
     profile: getProfile(state),
-    status: getStatus(state),
-    authUserID: getAuthUserID(state)
+    status: getProfileStatus(state),
+    authUserID: getAuthID(state)
   }
 }
 

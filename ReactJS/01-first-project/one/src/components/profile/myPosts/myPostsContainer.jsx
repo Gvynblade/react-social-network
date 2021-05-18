@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { getProfile, getProfilePosts } from '../../../redux/profile-selectors'
 
 import {
   addPostActionCreator
@@ -8,8 +9,8 @@ import MyPosts from './myPosts';
 
 let mapStateToProps = (state) => {
   return {
-    myPosts: state.profilePage.postsData,
-    myProfile: state.profilePage.profile
+    myPosts: getProfilePosts(state),
+    myProfile: getProfile(state)
   }
 }
 

@@ -3,10 +3,11 @@ import React from 'react';
 
 import { UserLogout } from '../../redux/auth-reducer';
 import Header from './header';
+import { getIsAuth, getAuthLogin, getAuthProfile, getAuthID } from '../../redux/auth-selectors'
+import { getIsFetching } from '../../redux/app-selectors'
 
 
-class HeaderContainer extends React.Component {
-
+class HeaderContainer extends React.PureComponent {
 
     render () {
         return <Header {...this.props} />
@@ -14,11 +15,11 @@ class HeaderContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    isAuth: state.auth.isAuth,
-    login: state.auth.login,
-    isFetching: state.auth.isFetching,
-    profile: state.auth.profile,
-    id: state.auth.id
+    isAuth: getIsAuth(state),
+    login: getAuthLogin(state),
+    isFetching: getIsFetching(state),
+    profile: getAuthProfile(state),
+    id: getAuthID(state)
 })
 
 export default connect (mapStateToProps, { UserLogout }) (HeaderContainer);

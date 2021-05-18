@@ -7,6 +7,7 @@ import { Input } from '../common/formsControls/formsControls';
 import { UserLogin } from '../../redux/auth-reducer';
 import { requiredField } from '../../utils/validators/validaors';
 import Styles from "./login.module.css"
+import { getIsAuth, getAuthCaptchaUrl } from '../../redux/auth-selectors'
 
 
 const Login = ({UserLogin, isAuth, captchaUrl}) => {
@@ -54,8 +55,8 @@ const ReduxLoginForm = reduxForm({
 })(LoginForm)
 
 let mapStateToProps = (state) => ({
-    isAuth: state.auth.isAuth,
-    captchaUrl: state.auth.captchaUrl
+    isAuth: getIsAuth(state),
+    captchaUrl: getAuthCaptchaUrl(state)
 })
 
 export default connect (mapStateToProps, {UserLogin}) (Login)

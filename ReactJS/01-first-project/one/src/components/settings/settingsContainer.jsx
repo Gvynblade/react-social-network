@@ -3,6 +3,8 @@ import React from 'react';
 
 import Settings from './settings';
 
+import { getAuthProfile } from '../../redux/auth-selectors'
+
 class SettingsContainer extends React.Component {
 
     componentDidMount () {
@@ -16,7 +18,7 @@ class SettingsContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    initialValues: state.auth.profile
+    initialValues: getAuthProfile(state)
 })
 
 

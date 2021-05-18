@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 import React from 'react';
 
 import { Input, Textarea } from '../common/formsControls/formsControls';
-import { updateSettings } from '../../redux/profile-reducer';
+import { updateSettings } from '../../redux/auth-reducer';
 import Styles from './settings.module.css'
+import { getIsAuth } from '../../redux/auth-selectors'
 
 
 
@@ -62,8 +63,7 @@ const ReduxSettingsForm = reduxForm({
 })(SettingsForm)
 
 let mapStateToProps = (state) => ({
-    isAuth: state.auth.isAuth,
-    profile : state.auth.profile
+    isAuth: getIsAuth(state)
 })
 
 export default connect (mapStateToProps, {updateSettings}) (Settings)

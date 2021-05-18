@@ -2,10 +2,12 @@ import { stopSubmit } from 'redux-form';
 
 import { authAPI, securityAPI } from '../api/api';
 
+import { toggleIsFetching } from './app-reducer';
+import { profileAPI } from '../api/api';
+
 
 const SET_USER_DATA = 'auth-reducer/SET_USER_DATA';
 const SET_USER_PROFILE = 'auth-reducer/SET_USER_PROFILE';
-const TOGGLE_IS_FETCHING = 'auth-reducer/TOGGLE_IS_FETCHING'
 const SET_CAPTCHA_URL = "auth-reducer/SET_CAPTCHA_URL"
 
 const initialState = {
@@ -23,7 +25,6 @@ const authReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case SET_USER_DATA:
-        case TOGGLE_IS_FETCHING:
         case SET_CAPTCHA_URL: {
 
             return {
@@ -56,11 +57,6 @@ export const setAuthUserProfile = (data) => ( {
     type: SET_USER_PROFILE, payload: {...data}
 } )
 
-export const toggleIsFetching = (isFetching) => ({
-    type: TOGGLE_IS_FETCHING,
-    payload: {isFetching}
-})
-
 export const setCaptcha = (captchaUrl) => ({
     type: SET_CAPTCHA_URL,
     payload: {captchaUrl}
@@ -70,8 +66,8 @@ export const setCaptcha = (captchaUrl) => ({
 // Thunk creators
 
 export const getAuthUser = () => async (dispatch) => {
-    dispatch(toggleIsFetching(true))
     try{
+        dispatch(toggleIsFetching(true))
         const response =  await authAPI.getAuthUser();
         if (response.resultCode === 0) {
             let {id, login, email} = response.data;
@@ -124,6 +120,21 @@ export const UserLogout = () => async (dispatch) => {
             dispatch(setAuthUserData(null, null, null, false))
         }
 
+    } catch (error) {
+        debugger
+    }
+}
+
+export const updateSettings = (newProfileData) => async (dispatch, getState) => {
+    try {
+        let response = await profileAPI.updateProfile(newProfileData);
+        if (response.resultCode === 0) {
+            dispatch(getAuthUser())
+        } else {
+            let message = response.messages.length > 0 ? response.messages[0] : "some error"
+            let action = stopSubmit('settingsForm', {_error: message})
+            dispatch(action)
+        }
     } catch (error) {
         debugger
     }
