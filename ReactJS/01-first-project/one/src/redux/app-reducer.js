@@ -3,13 +3,14 @@ import { getAuthUser } from './auth-reducer';
 
 const SET_INITIALIZED = 'app-reducer/SET_INITIALIZED';
 const TOGGLE_IS_FETCHING = 'app-reducer/TOGGLE_IS_FETCHING'
+const SET_APP_ERROR = 'app-reducer/SET_APP_ERROR'
 
 
 const initialState = {
     initialized: false,
     isFetching: false,
     globalError: null,
-    errorLog: null
+    errorLog: []
 };
 
 const appReducer = (state = initialState, action) => {
@@ -25,6 +26,18 @@ const appReducer = (state = initialState, action) => {
             }
         }
 
+        case SET_APP_ERROR: {
+            return {
+                ...state,
+                globalError: action.payload.error,
+                errorLog: [ ...state.errorLog,
+                    {
+                        date: new Date(),
+                        errorInfo: action.payload.error}
+                ]
+            }
+        }
+
         default: {
             return state;
         }
@@ -33,7 +46,7 @@ const appReducer = (state = initialState, action) => {
 }
 
 // action crators
-export const initializingSuccess = () => ( {
+export const initializingSuccess = () => ({
     type: SET_INITIALIZED,
     payload: {initialized: true}
 } )
@@ -41,6 +54,11 @@ export const initializingSuccess = () => ( {
 export const toggleIsFetching = (isFetching) => ({
     type: TOGGLE_IS_FETCHING,
     payload: {isFetching}
+})
+
+export const setAppError = (error) => ({
+    type: SET_APP_ERROR,
+    payload: {error}
 })
 
 // Thunk creators
@@ -53,7 +71,7 @@ export const initializeAPP = () => (dispatch) => {
             dispatch(initializingSuccess())
         })
     } catch (error) {
-        debugger
+        dispatch(setAppError(error))
     }
 }
 

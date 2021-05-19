@@ -28,4 +28,8 @@ const store = createStore(reducers, composeEnhancers(
 
 window.__store__ = store
 
+window.getErrorLog = () => {
+    return store.getState().app.errorLog
+}
+
 export default store;

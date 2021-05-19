@@ -1,6 +1,7 @@
 import { updateOnjectInArray } from '../utils/helpers/object-helpers';
 import { usersAPI } from '../api/api';
 import { toggleIsFetching } from './app-reducer';
+import { setAppError} from './app-reducer'
 
 const FOLLOW = 'users-reducer/FOLLOW';
 const UNFOLLOW = 'users-reducer/UNFOLLOW';
@@ -97,7 +98,7 @@ export const requestUsers = (page, pageSize) => async (dispatch) => {
         dispatch(setUsers(response.items))
         dispatch(setTotalUsersCount(response.totalCount))
     } catch (error) {
-        debugger
+        dispatch(setAppError(error))
     }
 }
 
@@ -105,7 +106,7 @@ export const follow = (userID) => async (dispatch) => {
     try {
         followUnfollowToggler(dispatch, userID, usersAPI.setFollow.bind(usersAPI), followAccept);
     } catch (error) {
-        debugger
+        dispatch(setAppError(error))
     }
 }
 
@@ -114,7 +115,7 @@ export const unFollow = (userID) => async (dispatch) => {
     try {
         followUnfollowToggler(dispatch, userID, usersAPI.setUnfollow.bind(usersAPI), unFollowAccept);
     } catch (error) {
-        debugger
+        dispatch(setAppError(error))
     }
 }
 
@@ -129,7 +130,7 @@ const followUnfollowToggler = async (dispatch, userID, apiMethod, actionCreator)
         }
         dispatch(toggleIsFollowing(false, userID))
     } catch (error) {
-        debugger
+        dispatch(setAppError(error))
     }
 }
 

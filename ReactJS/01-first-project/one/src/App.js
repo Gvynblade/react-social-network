@@ -14,11 +14,13 @@ import Preloader from './components/common/preloader/preloader';
 import Sidebar from './components/sidebar/sidebar';
 import UsersContainer from './components/users/usersContainer';
 import store from './redux/redux-store';
+import {getIsInitialized, getAppGlobalError } from './redux/app-selectors';
+import { getAuthID } from './redux/auth-selectors';
+import SideModal from './components/common/sideModal/SideModal';
 
 const DialogsContainer = React.lazy( () => import('./components/dialogs/dialogsContainer'))
 const ProfileContainer = React.lazy(() => import('./components/profile/profileContainer'))
 const SettingsContainer = React.lazy(() => import('./components/settings/settingsContainer'))
-
 
 class App extends React.Component {
 
@@ -41,32 +43,38 @@ class App extends React.Component {
             return <Preloader/>
         } else {
             return (
-                <div className="App">
-                    <HeaderContainer />
-                    <Sidebar />
+                <>
+                    <div className="App">
+                        <HeaderContainer />
+                        <Sidebar />
 
-                    <Switch>
-                        { !this.props.authUserId && <Route exact path="/" render={ () => <div>Mainpage</div> }/> }
-                        { this.props.authUserId && <Route exact path="/" render={ () => <Redirect to="/profile" /> }/> }
-                        <Route path="/profile/:userID?" render={ withSuspense(ProfileContainer) }/>
-                        <Route exact path="/messages" render={ withSuspense(DialogsContainer) }/>
-                        <Route exact path="/users" render={ () => <UsersContainer /> }/>
-                        <Route exact path="/login" render={ () => <Login /> }/>
-                        <Route exact path="/settings" render={ withSuspense(SettingsContainer) }/>
-                        <Route path="*" render={ () => <div>Error 404. Page not found</div> }/>
-                    </Switch>
+                        <Switch>
+                            { !this.props.authUserId && <Route exact path="/" render={ () => <div>Mainpage</div> }/> }
+                            { this.props.authUserId && <Route exact path="/" render={ () => <Redirect to="/profile" /> }/> }
+                            <Route path="/profile/:userID?" render={ withSuspense(ProfileContainer) }/>
+                            <Route exact path="/messages" render={ withSuspense(DialogsContainer) }/>
+                            <Route exact path="/users" render={ () => <UsersContainer /> }/>
+                            <Route exact path="/login" render={ () => <Login /> }/>
+                            <Route exact path="/settings" render={ withSuspense(SettingsContainer) }/>
+                            <Route path="*" render={ () => <div>Error 404. Page not found</div> }/>
+                        </Switch>
 
-                    <Footer />
-                </div>
-            )
-        }
+                        <Footer />
+                    </div>
 
+                    <SideModal globalError={this.props.globalError} />
+
+                </>
+        )
     }
+
+}
 }
 
 const mapStateToProps = (state) => ({
-    initialized: state.app.initialized,
-    authUserId: state.auth.id
+    initialized: getIsInitialized(state),
+    authUserId: getAuthID(state),
+    globalError: getAppGlobalError(state)
 })
 
 const AppContainer = compose (
@@ -74,12 +82,12 @@ const AppContainer = compose (
     connect (mapStateToProps, {initializeAPP})) (App)
 
 
-const SocialNetwork = (props) => {
-    return <BrowserRouter>
-        <Provider store={store} >
-            <AppContainer />
-        </Provider>
-    </BrowserRouter>
-}
+    const SocialNetwork = (props) => {
+        return <BrowserRouter>
+            <Provider store={store} >
+                <AppContainer />
+            </Provider>
+        </BrowserRouter>
+    }
 
-export default SocialNetwork;
+    export default SocialNetwork;

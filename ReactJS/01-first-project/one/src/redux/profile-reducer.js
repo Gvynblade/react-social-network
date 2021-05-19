@@ -3,6 +3,8 @@ import { profileAPI } from '../api/api';
 
 import { toggleIsFetching } from './app-reducer';
 
+import { setAppError} from './app-reducer'
+
 const ADD_POST = 'profile-reducer/ADD-POST';
 const SET_USER_PROFILE = 'profile-reducer/SET_USER_PROFILE'
 const SET_STATUS = 'profile-reducer/SET_STATUS'
@@ -120,7 +122,7 @@ export const requestProfile = (userID) => async (dispatch) => {
         dispatch(toggleIsFetching(false));
         dispatch(setUserProfile(response));
     } catch (error) {
-        debugger
+        dispatch(setAppError(error))
     }
 }
 
@@ -132,7 +134,7 @@ export const requestStatus = (userID) => async (dispatch) => {
         dispatch(toggleIsFetching(false));
         dispatch(setUserStatus(response));
     } catch (error) {
-        debugger
+        dispatch(setAppError(error))
     }
 }
 
@@ -145,7 +147,7 @@ export const updateStatus = (status) => async (dispatch) => {
             dispatch(setUserStatus(status));
         }
     } catch (error) {
-        debugger
+        dispatch(setAppError(error))
     }
 }
 
@@ -157,7 +159,7 @@ export const saveUserAvatar = (file, userID) => async (dispatch) => {
             dispatch(setNewAvatar(response.data.photos));
         }
     } catch (error) {
-        debugger
+        dispatch(setAppError(error))
     }
 }
 

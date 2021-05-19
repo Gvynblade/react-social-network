@@ -1,9 +1,8 @@
 import { stopSubmit } from 'redux-form';
 
-import { authAPI, securityAPI } from '../api/api';
+import { authAPI, securityAPI, profileAPI } from '../api/api';
 
-import { toggleIsFetching } from './app-reducer';
-import { profileAPI } from '../api/api';
+import { toggleIsFetching, setAppError } from './app-reducer';
 
 
 const SET_USER_DATA = 'auth-reducer/SET_USER_DATA';
@@ -77,7 +76,7 @@ export const getAuthUser = () => async (dispatch) => {
             dispatch(toggleIsFetching(false))
         }
     } catch (error) {
-        debugger
+        dispatch(setAppError(error))
     }
 
 }
@@ -96,7 +95,7 @@ export const UserLogin = (authEmail, authPassword, authRememberMe, captcha) => a
             dispatch(action)
         }
     } catch (error) {
-        debugger
+        dispatch(setAppError(error))
     }
 }
 
@@ -106,7 +105,7 @@ export const requestCaptcha = () => async (dispatch) => {
         const captchaUrl = response.url;
         dispatch(setCaptcha(captchaUrl))
     } catch (error) {
-        debugger
+        dispatch(setAppError(error))
     }
 
 }
@@ -121,7 +120,7 @@ export const UserLogout = () => async (dispatch) => {
         }
 
     } catch (error) {
-        debugger
+        dispatch(setAppError(error))
     }
 }
 
@@ -136,7 +135,7 @@ export const updateSettings = (newProfileData) => async (dispatch, getState) => 
             dispatch(action)
         }
     } catch (error) {
-        debugger
+        dispatch(setAppError(error))
     }
 }
 

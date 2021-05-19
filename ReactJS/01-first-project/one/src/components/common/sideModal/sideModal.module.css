@@ -1,0 +1,8 @@
+.sideModalBlock {
+    position: absolute;
+    bottom:20px;
+    right:20px;
+    padding: 20px;
+    background: rgba(255,255,255,0.8);
+    border:2px solid red;
+}
