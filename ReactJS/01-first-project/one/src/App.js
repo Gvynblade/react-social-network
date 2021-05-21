@@ -17,6 +17,7 @@ import store from './redux/redux-store';
 import {getIsInitialized, getAppGlobalError } from './redux/app-selectors';
 import { getAuthID } from './redux/auth-selectors';
 import SideModal from './components/common/sideModal/SideModal';
+import ErrorBoundary from "./components/common/errorBoundary/errorBoundary"
 
 const DialogsContainer = React.lazy( () => import('./components/dialogs/dialogsContainer'))
 const ProfileContainer = React.lazy(() => import('./components/profile/profileContainer'))
@@ -24,18 +25,8 @@ const SettingsContainer = React.lazy(() => import('./components/settings/setting
 
 class App extends React.Component {
 
-    catchAllUnhandledErrors = (promiseRejectionEvent) => {
-        alert("some error occured")
-        console.error(promiseRejectionEvent)
-    }
-
     componentDidMount() {
         this.props.initializeAPP()
-        window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors)
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener("unhandledrejection", this.catchAllUnhandledErrors)
     }
 
     render () {
@@ -85,7 +76,9 @@ const AppContainer = compose (
     const SocialNetwork = (props) => {
         return <BrowserRouter>
             <Provider store={store} >
-                <AppContainer />
+                <ErrorBoundary>
+                    <AppContainer />
+                </ErrorBoundary>
             </Provider>
         </BrowserRouter>
     }

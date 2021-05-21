@@ -5,12 +5,15 @@ import { UserLogout } from '../../redux/auth-reducer';
 import Header from './header';
 import { getIsAuth, getAuthLogin, getAuthProfile, getAuthID } from '../../redux/auth-selectors'
 import { getIsFetching } from '../../redux/app-selectors'
+import ErrorBoundary from '../common/errorBoundary/errorBoundary'
 
 
 class HeaderContainer extends React.PureComponent {
 
     render () {
-        return <Header {...this.props} />
+        return <ErrorBoundary>
+            <Header {...this.props} />
+        </ErrorBoundary>
     }
 }
 

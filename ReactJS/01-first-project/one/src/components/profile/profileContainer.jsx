@@ -2,6 +2,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import React from 'react';
+import ErrorBoundary from '../common/errorBoundary/errorBoundary'
 
 import {
   getProfile,
@@ -42,12 +43,14 @@ class ProfileContainer extends React.Component {
 
     render () {
 
-        return <Profile {...this.props}
+        return <ErrorBoundary>
+                <Profile {...this.props}
                 isOwner={!this.props.match.params.userID}
                 profile={this.props.profile}
                 status={this.props.status}
                 updateStatus={this.props.updateStatus}
                 saveUserAvatar={this.props.saveUserAvatar} />
+        </ErrorBoundary>
 
     }
 

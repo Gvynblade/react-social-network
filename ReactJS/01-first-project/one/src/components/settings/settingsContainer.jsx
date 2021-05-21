@@ -4,6 +4,7 @@ import React from 'react';
 import Settings from './settings';
 
 import { getAuthProfile } from '../../redux/auth-selectors'
+import ErrorBoundary from '../common/errorBoundary/errorBoundary'
 
 class SettingsContainer extends React.Component {
 
@@ -12,7 +13,9 @@ class SettingsContainer extends React.Component {
     }
 
     render () {
-        return <Settings  initialValues={this.props.initialValues}/>
+        return <ErrorBoundary>
+            <Settings  initialValues={this.props.initialValues}/>
+        </ErrorBoundary>
     }
 
 }
