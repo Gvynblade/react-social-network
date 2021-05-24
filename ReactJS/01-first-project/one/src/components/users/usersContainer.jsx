@@ -18,6 +18,7 @@ import {
 import Preloader from '../common/preloader/preloader';
 import Users from './users';
 import { getIsFetching } from '../../redux/app-selectors'
+import { withErrorBoundary } from "../hoc/errorBoundary/withErrorBoundary"
 
 
 class UsersContainer extends React.Component {
@@ -69,6 +70,7 @@ let mapStateToProps = (state) => {
 
 
 export default compose (
+    withErrorBoundary,
     connect(mapStateToProps, {
         follow, unFollow, setCurrentPage, requestUsers}
     )

@@ -1,19 +1,18 @@
 import { connect } from 'react-redux';
 import React from 'react';
+import { compose } from 'redux';
+import { withErrorBoundary } from "../hoc/errorBoundary/withErrorBoundary"
 
 import { UserLogout } from '../../redux/auth-reducer';
 import Header from './header';
 import { getIsAuth, getAuthLogin, getAuthProfile, getAuthID } from '../../redux/auth-selectors'
 import { getIsFetching } from '../../redux/app-selectors'
-import ErrorBoundary from '../common/errorBoundary/errorBoundary'
 
 
 class HeaderContainer extends React.PureComponent {
 
     render () {
-        return <ErrorBoundary>
-            <Header {...this.props} />
-        </ErrorBoundary>
+        return <Header {...this.props} />
     }
 }
 
@@ -25,4 +24,7 @@ const mapStateToProps = (state) => ({
     id: getAuthID(state)
 })
 
-export default connect (mapStateToProps, { UserLogout }) (HeaderContainer);
+export default compose (
+    withErrorBoundary,
+    connect (mapStateToProps, { UserLogout })
+) (HeaderContainer);

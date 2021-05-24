@@ -17,7 +17,7 @@ import store from './redux/redux-store';
 import {getIsInitialized, getAppGlobalError } from './redux/app-selectors';
 import { getAuthID } from './redux/auth-selectors';
 import SideModal from './components/common/sideModal/SideModal';
-import ErrorBoundary from "./components/common/errorBoundary/errorBoundary"
+import { withErrorBoundary } from './components/hoc/errorBoundary/withErrorBoundary'
 
 const DialogsContainer = React.lazy( () => import('./components/dialogs/dialogsContainer'))
 const ProfileContainer = React.lazy(() => import('./components/profile/profileContainer'))
@@ -69,6 +69,7 @@ const mapStateToProps = (state) => ({
 })
 
 const AppContainer = compose (
+    withErrorBoundary,
     withRouter,
     connect (mapStateToProps, {initializeAPP})) (App)
 
@@ -76,9 +77,7 @@ const AppContainer = compose (
     const SocialNetwork = (props) => {
         return <BrowserRouter>
             <Provider store={store} >
-                <ErrorBoundary>
-                    <AppContainer />
-                </ErrorBoundary>
+                <AppContainer />
             </Provider>
         </BrowserRouter>
     }

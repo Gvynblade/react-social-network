@@ -2,6 +2,8 @@ import { Field, reduxForm } from 'redux-form'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux';
 import React from 'react';
+import { compose } from 'redux';
+import { withErrorBoundary } from "../hoc/errorBoundary/withErrorBoundary"
 
 import { Input } from '../common/formsControls/formsControls';
 import { UserLogin } from '../../redux/auth-reducer';
@@ -59,4 +61,7 @@ let mapStateToProps = (state) => ({
     captchaUrl: getAuthCaptchaUrl(state)
 })
 
-export default connect (mapStateToProps, {UserLogin}) (Login)
+export default compose (
+    withErrorBoundary,
+    connect (mapStateToProps, {UserLogin})
+) (Login)

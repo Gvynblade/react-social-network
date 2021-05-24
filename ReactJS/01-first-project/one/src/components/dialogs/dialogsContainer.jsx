@@ -1,5 +1,6 @@
 import { compose } from 'redux';
 import { connect } from 'react-redux';
+import { withErrorBoundary } from "../hoc/errorBoundary/withErrorBoundary"
 
 import {
   addDialogActionCreator,
@@ -24,6 +25,7 @@ let mapDispatchToProps = (dispatch) => {
 }
 
 export default compose (
+    withErrorBoundary,
     connect(mapStateToProps, mapDispatchToProps),
     withAuthRedirect
 ) (Dialogs)

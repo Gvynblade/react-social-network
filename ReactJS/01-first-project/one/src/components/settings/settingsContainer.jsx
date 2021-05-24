@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import React from 'react';
+import { compose } from 'redux';
 
 import Settings from './settings';
 
 import { getAuthProfile } from '../../redux/auth-selectors'
-import ErrorBoundary from '../common/errorBoundary/errorBoundary'
+import { withErrorBoundary } from "../hoc/errorBoundary/withErrorBoundary"
 
 class SettingsContainer extends React.Component {
 
@@ -13,9 +14,7 @@ class SettingsContainer extends React.Component {
     }
 
     render () {
-        return <ErrorBoundary>
-            <Settings  initialValues={this.props.initialValues}/>
-        </ErrorBoundary>
+        return <Settings  initialValues={this.props.initialValues}/>
     }
 
 }
@@ -25,4 +24,7 @@ const mapStateToProps = (state) => ({
 })
 
 
-export default connect (mapStateToProps, null) (SettingsContainer);
+export default compose (
+    withErrorBoundary,
+    connect (mapStateToProps, null)
+) (SettingsContainer);
