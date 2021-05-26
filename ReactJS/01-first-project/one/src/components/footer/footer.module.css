@@ -5,3 +5,26 @@
   bottom:0;
   padding:10px;
 }
+
+
+.footer:before{
+    content: '';
+    position: absolute;
+    display: block;
+    left: -100%;
+    right:100%;
+    bottom:0;
+    height:40px;
+    background:gray;
+}
+
+.footer:after{
+    content: '';
+    position: absolute;
+    display: block;
+    right: -100%;
+    left: 100%;
+    bottom:0;
+    height:40px;
+    background:gray;
+}

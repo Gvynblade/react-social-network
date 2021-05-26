@@ -12,6 +12,16 @@ const Sidebar = () => {
         <li><NavLink to="/friends" activeClassName={Styles.active}>Friends</NavLink></li>
         <li><NavLink to="/settings" activeClassName={Styles.active}>Settings</NavLink></li>
       </ul>
+
+      <div className={Styles.sidebarBlock}>
+          <div className={Styles.sidebarBlock__title}>
+            Friends 12
+          </div>
+          <div className={Styles.sidebarBlock__content}>
+              123123123
+          </div>
+      </div>
+
     </div>
   );
 }

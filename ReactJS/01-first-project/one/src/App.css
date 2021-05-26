@@ -1,29 +1,31 @@
 html, body{
-  padding:0;
-  margin:0;
-  background:#edf2f6;
+    padding:0;
+    margin:0;
+    background:#edf2f6;
+    overflow-x: hidden;
 }
 
 a, a:visited {
-  text-decoration:none;
-  color:orange;
+    text-decoration:none;
+    color:orange;
 }
 
 *{
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .App{
-  display:grid;
-  width:1200px;
-  margin: 0 auto;
-  grid-template-areas:
-  "header header"
-  "sidebar content"
-  "footer footer";
-  grid-template-rows: 60px 1fr;
-  grid-template-columns: 2fr 10fr;
-  grid-gap:20px;
+    display:grid;
+    width:1200px;
+    margin: 0 auto;
+    grid-template-areas:
+    "header header header"
+    "sidebar content content"
+    "footer footer footer";
+    grid-template-rows: 60px 1fr 40px;
+    grid-template-columns: 2.5fr 9.5fr;
+    grid-gap:20px;
+    min-height: 100vh;
 }
 
 main{

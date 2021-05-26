@@ -13,8 +13,23 @@
     background:rgba(255,255,255,0.6);
     padding: 10px 20px;
     margin-bottom:5px;
-    border: 1px solid #e6ecf5;
+    border: 2px solid #e6ecf5;
     color:#222;
     font-weight: 200;
     text-transform: uppercase;
+}
+
+.sidebarBlock{
+    margin-top:20px;
+    background:rgba(255,255,255,0.6);
+    border: 2px solid #e6ecf5;
+}
+
+.sidebarBlock__title{
+    padding: 15px 20px;
+    border-bottom: 2px solid #e6ecf5;
+}
+
+.sidebarBlock__content{
+    padding: 15px 20px;
 }

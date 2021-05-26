@@ -2,9 +2,30 @@
 .header{
   grid-area: header;
   background:#3f4257;
-  padding:10px;
+  padding:10px 0;
   display: flex;
   align-items: center;
+  position: relative;
+}
+
+.header:before{
+    content: '';
+    position: absolute;
+    display: block;
+    right:100%;
+    width: 2000%;
+    height:60px;
+    background:#3f4257;
+}
+
+.header:after{
+    content: '';
+    position: absolute;
+    display: block;
+    left: 100%;
+    width: 2000%;
+    height:60px;
+    background:#3f4257;
 }
 
 .header a{
@@ -29,7 +50,7 @@
   height:100%;
 }
 
-.header ul li {
+.header ul li:not(:first-child) {
     padding: 0 20px
 }
 
