@@ -14,7 +14,7 @@ import {
   getPageSize,
   getTotalUsersCount,
   getUsers
-} from '../../redux/user-selectors';
+} from '../../redux/users-selectors';
 import Preloader from '../common/preloader/preloader';
 import Users from './users';
 import { getIsFetching } from '../../redux/app-selectors'

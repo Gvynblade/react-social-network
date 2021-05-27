@@ -2,7 +2,7 @@ import React from "react";
 import Styles from "./pagination.module.css"
 import cn from 'classnames/bind'
 
-const PaginationAlt = ({totalItemsCount, pageSize, currentPage, onPageChanged, portionSize = 12}) => {
+const Pagination = ({totalItemsCount, pageSize, currentPage, onPageChanged, portionSize = 12}) => {
 
     let pagesCount = Math.ceil(totalItemsCount / pageSize);
     let pages = [];
@@ -43,4 +43,4 @@ const PaginationAlt = ({totalItemsCount, pageSize, currentPage, onPageChanged, p
 
 }
 
-export default PaginationAlt;
+export default Pagination;
