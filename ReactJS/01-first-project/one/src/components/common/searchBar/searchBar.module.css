@@ -1,0 +1,23 @@
+.searchForm{
+    background: rgba(255,255,255,0.1);
+    position: relative;
+    display: block;
+}
+
+.searchForm__input{
+    background: none;
+    border:none;
+    padding:10px 15px;
+    outline: none;
+    color: #fff;
+    width:300px;
+}
+
+.searchForm__btn{
+    background: none;
+    border:none;
+    padding:10px;
+    margin-left:10px 15px;
+    color: rgba(255,255,255,0.9);
+    cursor:pointer;
+}

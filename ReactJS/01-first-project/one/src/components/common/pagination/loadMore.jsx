@@ -5,12 +5,13 @@ const LoadMore = ({totalItemsCount, pageSize, currentPage, setCurrentPage, onPag
 
     let pagesCount = Math.ceil(totalItemsCount / pageSize);
 
+
     let getMore = () => {
         setCurrentPage(currentPage + 1);
-        onPageChanged(currentPage, pageSize)
+        onPageChanged(currentPage + 1, pageSize)
     }
 
-    if (currentPage <= pagesCount ) {
+    if (totalItemsCount > pageSize && currentPage < pagesCount ) {
         return <button className={Styles.friends__getMoreBtn} onClick={getMore}>Загрузить еще...</button>
     }
 

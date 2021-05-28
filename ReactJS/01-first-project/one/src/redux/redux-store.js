@@ -7,7 +7,8 @@ import authReducer from './auth-reducer';
 import dialogsReducer from './dialogs-reducer';
 import profileReducer from './profile-reducer';
 import usersReducer from './users-reducer';
-import friendsReducer from './friends-reducer'
+import friendsReducer from './friends-reducer';
+import searchReducer from './search-reducer'
 
 
 let reducers = combineReducers(
@@ -18,6 +19,7 @@ let reducers = combineReducers(
         messagesPage: dialogsReducer,
         usersPage: usersReducer,
         friendsPage: friendsReducer,
+        searchPage: searchReducer,
         form: formReducer
     }
 );

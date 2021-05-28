@@ -4,16 +4,17 @@ import React from 'react';
 import Preloader from '../common/preloader/preloader';
 import Styles from './header.module.css';
 import userNoPhoto from '../../assets/img/user-no-photo.png'
+import SearchBar from '../common/searchBar/searchBar'
 
 
 const Header = (props) => {
 
     let headerNav = <ul>
             <li><NavLink to="/"><img src="https://www.indirtik.com/wp-content/uploads/2019/07/logo-maker-transparent-background-4.png" alt="logo" /></NavLink></li>
-            <li><NavLink to="/profile" activeClassName={Styles.active}>profile</NavLink></li>
-            <li><NavLink to="/feed" activeClassName={Styles.active}>Feed</NavLink></li>
-            <li><NavLink to="/messages" activeClassName={Styles.active}>Messages</NavLink></li>
-            <li><NavLink to="/users" activeClassName={Styles.active}>Users</NavLink></li>
+            <li>
+                <SearchBar />
+            </li>
+            <li><NavLink to="/users" activeClassName={Styles.active}>All Users</NavLink></li>
         </ul>
 
     if (props.isAuth) {

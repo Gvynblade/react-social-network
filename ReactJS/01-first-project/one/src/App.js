@@ -18,11 +18,11 @@ import {getIsInitialized, getAppGlobalError } from './redux/app-selectors';
 import { getAuthID } from './redux/auth-selectors';
 import SideModal from './components/common/sideModal/SideModal';
 import { withErrorBoundary } from './components/hoc/errorBoundary/withErrorBoundary'
-import Friends from './components/friends/friends'
 
 const DialogsContainer = React.lazy( () => import('./components/dialogs/dialogsContainer'))
 const ProfileContainer = React.lazy(() => import('./components/profile/profileContainer'))
 const SettingsContainer = React.lazy(() => import('./components/settings/settingsContainer'))
+const Friends = React.lazy(() => import('./components/friends/friends'))
 
 class App extends React.Component {
 
@@ -45,7 +45,7 @@ class App extends React.Component {
                             { this.props.authUserId && <Route exact path="/" render={ () => <Redirect to="/profile" /> }/> }
                             <Route path="/profile/:userID?" render={ withSuspense(ProfileContainer) }/>
                             <Route exact path="/messages" render={ withSuspense(DialogsContainer) }/>
-                            <Route exact path="/friends" render={ () => <Friends /> }/>
+                            <Route exact path="/friends" render={ withSuspense(Friends) }/>
                             <Route exact path="/users" render={ () => <UsersContainer /> }/>
                             <Route exact path="/login" render={ () => <Login /> }/>
                             <Route exact path="/settings" render={ withSuspense(SettingsContainer) }/>

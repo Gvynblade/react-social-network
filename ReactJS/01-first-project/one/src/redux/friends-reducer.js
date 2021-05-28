@@ -9,7 +9,7 @@ const initialState = {
     friends: [],
     totalFriendsCount: 0,
     currentPage: 1,
-    pageSize: 8,
+    pageSize: 16,
 };
 
 const friendsReducer = (state = initialState, action) => {
@@ -60,7 +60,6 @@ export const requestFriends = (page, pageSize) => async (dispatch) => {
         dispatch(toggleIsFetching(true))
         const response = await usersAPI.getFriends(page, pageSize)
         if (response.error === null) {
-            debugger
             dispatch(setFriends(response.items))
             dispatch(setTotalFriendsCount(response.totalCount))
             dispatch(toggleIsFetching(false))
