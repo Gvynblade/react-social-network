@@ -30,15 +30,13 @@ const Sidebar = React.memo((props) => {
     });
 
     friendsList = friendsList.map( (friend) => {
-        return <div className={Styles.sidebarBlock__friend}>
+        return <div key={friend.id + friend.name} className={Styles.sidebarBlock__friend}>
             <NavLink to={'/profile/' + friend.id}>
                 <img src={friend.photos.small != null ? friend.photos.small: userNoPhoto} alt={`${friend.name} avatar`} />
                 <div className={Styles.sidebarBlock__friendName}>{friend.name}</div>
             </NavLink>
         </div>
     })
-
-    console.log(friendsList)
 
     return(
         <div className={Styles.sidebar}>

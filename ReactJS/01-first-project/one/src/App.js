@@ -23,6 +23,7 @@ const DialogsContainer = React.lazy( () => import('./components/dialogs/dialogsC
 const ProfileContainer = React.lazy(() => import('./components/profile/profileContainer'))
 const SettingsContainer = React.lazy(() => import('./components/settings/settingsContainer'))
 const Friends = React.lazy(() => import('./components/friends/friends'))
+const Search = React.lazy(() => import('./components/search/search'))
 
 class App extends React.Component {
 
@@ -49,6 +50,7 @@ class App extends React.Component {
                             <Route exact path="/users" render={ () => <UsersContainer /> }/>
                             <Route exact path="/login" render={ () => <Login /> }/>
                             <Route exact path="/settings" render={ withSuspense(SettingsContainer) }/>
+                            <Route path="/search/:searchQuery?" render={ withSuspense(Search) }/>
                             <Route path="*" render={ () => <div>Error 404. Page not found</div> }/>
                         </Switch>
 

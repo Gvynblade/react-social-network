@@ -40,7 +40,11 @@ export const usersAPI = {
     },
     getFriends (currentPage = 1, pageSize = 30) {
         return instance.get(`users?page=${currentPage}&count=${pageSize}&friend=true`).then (response => response.data);
+    },
+    searchUsers (searchQuery, currentPage = 1, pageSize = 30) {
+        return instance.get(`users?page=${currentPage}&count=${pageSize}&term=${searchQuery}`).then (response => response.data);
     }
+
 }
 
 export const profileAPI = {

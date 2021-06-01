@@ -12,7 +12,7 @@ const Header = (props) => {
     let headerNav = <ul>
             <li><NavLink to="/"><img src="https://www.indirtik.com/wp-content/uploads/2019/07/logo-maker-transparent-background-4.png" alt="logo" /></NavLink></li>
             <li>
-                <SearchBar />
+                <SearchBar requestSearchResults={props.requestSearchResults} />
             </li>
             <li><NavLink to="/users" activeClassName={Styles.active}>All Users</NavLink></li>
         </ul>

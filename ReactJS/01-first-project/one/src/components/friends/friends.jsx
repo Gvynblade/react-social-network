@@ -38,7 +38,7 @@ const Friends = React.memo( (props) => {
         followingInProgress={props.followingInProgress}
         unFollow={props.unFollow}
         follow={props.follow} />
-)
+    )
 
 return <main>
     friends: {props.totalFriendsCount}
