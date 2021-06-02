@@ -30,8 +30,7 @@ import LoadMore from '../common/pagination/loadMore'
 const Search = React.memo ( (props) => {
 
     useEffect(() => {
-        if (props.searchResultsCount === null) {
-            debugger
+        if (props.searchResultsCount === null && !!props.match.params.searchQuery) {
             props.requestSearchResults(usersAPI.searchUsers, props.match.params.searchQuery)
         }
 

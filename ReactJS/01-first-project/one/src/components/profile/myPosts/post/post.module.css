@@ -5,13 +5,13 @@
   padding:20px;
 }
 
-.header{
+.post__header{
   display:flex;
   margin-bottom:20px;
   align-items: center;
 }
 
-.ava{
+.post__ava{
   display:block;
   width:80px;
   height:80px;
@@ -20,23 +20,27 @@
   border:3px solid #d0d0d0;
 }
 
-.name{
+.post__name{
   font-weight:bold;
 }
 
-.date{
+.post__date{
   color:#a0a0a0;
   font-style: italic;
 }
 
-.message{
+.post__deleteBtn{
+    margin-left:auto;
+}
+
+.post__message{
   color:#333;
   line-height:22px;
   font-family: monospace;
   font-size:16px;
 }
 
-.footer{
+.post__footer{
   margin-top:20px;
   padding-top:20px;
   border-top: 1px solid #d0d0d0;

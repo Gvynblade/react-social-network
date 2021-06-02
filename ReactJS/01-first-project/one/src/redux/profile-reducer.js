@@ -22,25 +22,28 @@ const initialState = {
 
     postsData: [
         {
-            id: 1,
+            id: 228,
             ava: 'https://v-tagile.ru/media/k2/items/cache/3a87681a8365cb10ceb54d7831ccad1f_XL.jpg',
             name: 'Урал Вагон Завод',
-            date: '10 hours ago',
-            message: 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн.'
+            date: '01.01.2021 at 14:00',
+            message: 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн.',
+            likesCount: 250
         },
         {
-            id: 2,
+            id: 213,
             ava: 'https://v-tagile.ru/media/k2/items/cache/3a87681a8365cb10ceb54d7831ccad1f_XL.jpg',
             name: 'Урал Вагон Завод',
-            date: '01.03.2020',
-            message: 'Fist day of spring! Yay!!!! :)'
+            date: '01.03.2020 at 04:26',
+            message: 'Fist day of spring! Yay!!!! :)',
+            likesCount: 0
         },
         {
-            id: 3,
+            id: 164,
             ava: 'https://v-tagile.ru/media/k2/items/cache/3a87681a8365cb10ceb54d7831ccad1f_XL.jpg',
             name: 'Урал Вагон Завод',
-            date: '29.02.2020',
-            message: 'Мой первый пост'
+            date: '29.02.2020 at 16:11',
+            message: 'Мой первый пост',
+            likesCount: 5
         }
 
     ]
@@ -53,6 +56,8 @@ const profileReducer = (state = initialState, action) => {
 
         case ADD_POST: {
 
+            let date = new Date()
+            
             return {
                 ...state,
                 postsData: [
@@ -60,12 +65,12 @@ const profileReducer = (state = initialState, action) => {
                         id: state.postsData.length + 1,
                         ava: state.profile.photos.small,
                         name: state.profile.fullName,
-                        date: Date(),
-                        message: action.message
+                        date: `${date.getDate()}.${date.getMonth()}.${date.getFullYear()} at ${date.getHours()}:${date.getMinutes()}`,
+                        message: action.message,
+                        likesCount: 0
                     },
                     ...state.postsData
-                ],
-                newPostText: ''
+                ]
             };
 
         }

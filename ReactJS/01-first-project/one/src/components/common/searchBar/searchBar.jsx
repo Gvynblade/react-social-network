@@ -8,12 +8,13 @@ import { minLenghtCreator } from '../../../utils/validators/validaors'
 
 let minLenght2 = minLenghtCreator(2);
 
-const SearchBar = ({requestSearchResults}) => {
+const SearchBar = ({requestSearchResults, removeSearchData}) => {
 
     const history = useHistory();
 
     const getSearchResults = (formData) => {
-        let path = `search/` + formData.searchPhraze;
+        removeSearchData()
+        let path = `/search/` + formData.searchPhraze;
         history.push(path);
     }
 

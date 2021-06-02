@@ -20,6 +20,7 @@ const MyPosts = React.memo( props => {
                     name={props.myProfile.fullName}
                     date={p.date}
                     message={p.message}
+                    likesCount={p.likesCount}
                     />
             )
         });

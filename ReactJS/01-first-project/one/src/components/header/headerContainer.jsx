@@ -7,7 +7,7 @@ import { UserLogout } from '../../redux/auth-reducer';
 import Header from './header';
 import { getIsAuth, getAuthLogin, getAuthProfile, getAuthID } from '../../redux/auth-selectors'
 import { getIsFetching } from '../../redux/app-selectors'
-import { requestSearchResults } from '../../redux/search-reducer'
+import { requestSearchResults, removeSearchData } from '../../redux/search-reducer'
 
 
 class HeaderContainer extends React.PureComponent {
@@ -27,5 +27,5 @@ const mapStateToProps = (state) => ({
 
 export default compose (
     withErrorBoundary,
-    connect (mapStateToProps, { UserLogout, requestSearchResults })
+    connect (mapStateToProps, { UserLogout, requestSearchResults, removeSearchData })
 ) (HeaderContainer);
