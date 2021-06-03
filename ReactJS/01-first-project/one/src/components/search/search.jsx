@@ -30,14 +30,10 @@ import LoadMore from '../common/pagination/loadMore'
 const Search = React.memo ( (props) => {
 
     useEffect(() => {
-        if (props.searchResultsCount === null && !!props.match.params.searchQuery) {
+        if (props.searchResults.length === 0 && !!props.match.params.searchQuery && props.searchResultsCount !== 0) {
             props.requestSearchResults(usersAPI.searchUsers, props.match.params.searchQuery)
         }
-
-        return () => {
-            props.removeSearchData()
-        }
-    }, [])
+    }, [props.searchResultsCount])
 
     let userslist = props.searchResults.map( u => <User
         key={u.id}
@@ -57,7 +53,7 @@ return <main>
     <h1>Search query : {props.searchQuery}</h1>
     <div className={Styles.search__resultsCount}>Results total: {props.searchResultsCount}</div>
     <div className={Styles.seach__resultsList}>
-        {userslist}
+        {props.searchResultsCount === 0 ? "Sorry, nothing found. Try using a different search query" : userslist }
     </div>
 
     <LoadMore

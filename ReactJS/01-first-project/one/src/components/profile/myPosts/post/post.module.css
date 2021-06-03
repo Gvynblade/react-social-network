@@ -31,7 +31,16 @@
 
 .post__deleteBtn{
     margin-left:auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .5s;
 }
+
+.post:hover .post__deleteBtn{
+    visibility: visible;
+    opacity: 1;
+}
+
 
 .post__message{
   color:#333;

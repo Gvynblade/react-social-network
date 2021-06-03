@@ -7,3 +7,10 @@ export const updateOnjectInArray = (items, itemID, objectPropName, newObjProps) 
     } )
 
 }
+
+
+export const removeObjectFromArray = (items, itemID, objectPropName) => {
+    return items.filter( i => {
+        return i[objectPropName] !== itemID
+    })
+}

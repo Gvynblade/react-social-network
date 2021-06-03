@@ -5,10 +5,16 @@ import { toggleIsFetching } from './app-reducer';
 
 import { setAppError} from './app-reducer'
 
+import { getDate } from '../utils/helpers/getdate'
+
+import { removeObjectFromArray, updateOnjectInArray } from '../utils/helpers/object-helpers'
+
 const ADD_POST = 'profile-reducer/ADD-POST';
 const SET_USER_PROFILE = 'profile-reducer/SET_USER_PROFILE'
 const SET_STATUS = 'profile-reducer/SET_STATUS'
 const SET_NEW_AVATAR = 'profile-reducer/SET_NEW__AVATAR'
+const DELETE_POST = 'profile-reducer/DELETE_POST'
+const UPDATE_POST_LIKESCOUNT = 'profile-reducer/UPDATE_POST_LIKESCOUNT'
 
 const initialState = {
 
@@ -22,25 +28,25 @@ const initialState = {
 
     postsData: [
         {
-            id: 228,
-            ava: 'https://v-tagile.ru/media/k2/items/cache/3a87681a8365cb10ceb54d7831ccad1f_XL.jpg',
-            name: 'Урал Вагон Завод',
+            id: 4,
+            date: '21.04.2021 at 09:00',
+            message: 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн.',
+            likesCount: 0
+        },
+        {
+            id: 3,
             date: '01.01.2021 at 14:00',
             message: 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн.',
             likesCount: 250
         },
         {
-            id: 213,
-            ava: 'https://v-tagile.ru/media/k2/items/cache/3a87681a8365cb10ceb54d7831ccad1f_XL.jpg',
-            name: 'Урал Вагон Завод',
+            id: 2,
             date: '01.03.2020 at 04:26',
             message: 'Fist day of spring! Yay!!!! :)',
             likesCount: 0
         },
         {
-            id: 164,
-            ava: 'https://v-tagile.ru/media/k2/items/cache/3a87681a8365cb10ceb54d7831ccad1f_XL.jpg',
-            name: 'Урал Вагон Завод',
+            id: 1,
             date: '29.02.2020 at 16:11',
             message: 'Мой первый пост',
             likesCount: 5
@@ -56,16 +62,14 @@ const profileReducer = (state = initialState, action) => {
 
         case ADD_POST: {
 
-            let date = new Date()
-            
+            let date = getDate()
+
             return {
                 ...state,
                 postsData: [
                     {
                         id: state.postsData.length + 1,
-                        ava: state.profile.photos.small,
-                        name: state.profile.fullName,
-                        date: `${date.getDate()}.${date.getMonth()}.${date.getFullYear()} at ${date.getHours()}:${date.getMinutes()}`,
+                        date: `${date.date}.${date.month}.${date.year} at ${date.hour}:${date.minutes}`,
                         message: action.message,
                         likesCount: 0
                     },
@@ -88,6 +92,19 @@ const profileReducer = (state = initialState, action) => {
             }
         }
 
+        case DELETE_POST: {
+            return {
+                ...state, postsData: removeObjectFromArray(state.postsData, action.payload.postId, 'id')
+            }
+        }
+
+        case UPDATE_POST_LIKESCOUNT : {
+            return {
+                ...state,
+                postsData: updateOnjectInArray(state.postsData, action.payload.postId, 'id', {likesCount: action.payload.likesCount})
+            }
+        }
+
         default: {
             return state;
         }
@@ -97,7 +114,7 @@ const profileReducer = (state = initialState, action) => {
 
 // action crators
 
-export const addPostActionCreator = (message) => ( {
+export const addPost = (message) => ( {
     type: ADD_POST,
     message
 } )
@@ -117,6 +134,15 @@ export const setNewAvatar = (photos) => ({
     payload: { photos }
 })
 
+export const deletePost = (postId) => ({
+    type: DELETE_POST,
+    payload: { postId }
+})
+
+export const updatelikesCount = (postId, likesCount) => ({
+    type: UPDATE_POST_LIKESCOUNT,
+    payload: { postId, likesCount }
+})
 
 // Thunk creators
 

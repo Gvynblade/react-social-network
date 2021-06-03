@@ -15,12 +15,14 @@ const MyPosts = React.memo( props => {
             return (
                 <Post
                     key={p.id}
-                    id={props.myProfile.id}
+                    id={p.id}
                     ava={props.myProfile.photos.small ? props.myProfile.photos.small : userNoPhoto }
                     name={props.myProfile.fullName}
                     date={p.date}
                     message={p.message}
                     likesCount={p.likesCount}
+                    deletePost={props.deletePost}
+                    updatelikesCount={props.updatelikesCount}
                     />
             )
         });
