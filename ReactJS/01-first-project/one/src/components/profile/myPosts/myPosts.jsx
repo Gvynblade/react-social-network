@@ -23,6 +23,7 @@ const MyPosts = React.memo( props => {
                     likesCount={p.likesCount}
                     deletePost={props.deletePost}
                     updatelikesCount={props.updatelikesCount}
+                    isOwner={props.isOwner}
                     />
             )
         });

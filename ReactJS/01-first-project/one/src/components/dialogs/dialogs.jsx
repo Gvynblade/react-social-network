@@ -14,7 +14,7 @@ const Dialogs = (props) => {
         date={d.prev.date}
         lastMsg={d.prev.lastMsg}
         dialogarr={d.dialogarr}
-        addMessage={props.addMessage}
+        addMessage={props.addDialog}
       />
     );
   })

@@ -1,5 +1,6 @@
 import { Field, reduxForm } from 'redux-form';
 import React from 'react';
+import {NavLink} from 'react-router-dom';
 
 import { Textarea } from '../../common/formsControls/formsControls';
 import {
@@ -28,7 +29,7 @@ const DialogsItem = (props) => {
   }
 
   return (
-    <div className={Styles.dialogsItem}>
+    <NavLink className={Styles.dialogsItem} to={path}>
 
       <div><img src={props.ava} alt={props.name}/></div>
       <div>{props.name}</div>
@@ -38,7 +39,7 @@ const DialogsItem = (props) => {
 
       <ReduxAddNewMessageForm onSubmit={submit} />
 
-    </div>
+    </NavLink>
   )
 }
 
