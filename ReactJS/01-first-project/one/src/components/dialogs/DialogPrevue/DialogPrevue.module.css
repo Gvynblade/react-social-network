@@ -1,0 +1,58 @@
+.dialog {
+    position: relative;
+}
+
+.dialog__link{
+    display: flex;
+    background: #fff;
+    border: 1px solid #e6ecf5;
+    padding: 15px;
+    color: #222;
+}
+
+.dialog__link:active, .dialog__link:visited{
+    color: #222;
+}
+
+.dialog__photo img{
+    border-radius: 50%;
+    width:70px;
+    height:70px;
+}
+
+.dialog__column{
+    margin-left:20px;
+
+}
+
+.dialog__userName{
+    font-weight: bold;
+}
+
+.dialog__message{
+    margin-top:20px;
+    background: #eee;
+    padding: 10px 25px;
+    border-radius: 0 25px 25px 25px;
+    position: relative;
+}
+
+.dialog__message:before{
+    content:'';
+    position: absolute;
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid #eee;
+    top:0;
+    left:-10px;
+}
+
+.dialog__column2{
+    position: absolute;
+    top:20px;
+    right: 20px;
+}
+
+.dialog__date{
+    color: #999;
+    padding-right: 10px;
+}

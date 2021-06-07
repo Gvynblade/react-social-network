@@ -2,7 +2,6 @@ import React from 'react';
 import Styles from './post.module.css';
 
 const Post = (props) => {
-    debugger
     return(
         <div className={Styles.post}>
             <div className={Styles.post__header}>

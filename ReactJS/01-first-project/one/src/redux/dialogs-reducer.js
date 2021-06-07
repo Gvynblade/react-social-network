@@ -6,12 +6,15 @@ const initialState = {
         {
             dialogInfo : {
                 dialogWithUserId: 1257,
+                dialogWithUserAva: 'https://sun9-20.userapi.com/impf/c855628/v855628629/147a89/mzpg71Q0aVo.jpg?size=200x0&quality=90&sign=7d6a7866cb8f9df1c8880b3398de0d4c&ava=1',
+                dialogWithUserName: 'Владимир Слепченков',
                 dialogPositionInArr: 0,
             },
             messages :[
                 {
                     messageAuthorId: 1257,
                     messageId: 115,
+                    dialogWithUserName: 'Владимир Слепченков',
                     messageAuthorAva: 'https://sun9-20.userapi.com/impf/c855628/v855628629/147a89/mzpg71Q0aVo.jpg?size=200x0&quality=90&sign=7d6a7866cb8f9df1c8880b3398de0d4c&ava=1',
                     messageAuthorPage: '/profile/1257',
                     message: 'Здаров',
@@ -21,6 +24,7 @@ const initialState = {
                 {
                     messageAuthorId: 11248,
                     messageId: 116,
+                    dialogWithUserName: 'DenielWeb',
                     messageAuthorAva: 'https://social-network.samuraijs.com/activecontent/images/users/11248/user-small.jpg?v=17',
                     messageAuthorPage: '/profile/11248',
                     message: 'React Js is awesome!',
@@ -30,6 +34,7 @@ const initialState = {
                 {
                     messageAuthorId: 1257,
                     messageId: 117,
+                    dialogWithUserName: 'Владимир Слепченков',
                     messageAuthorAva: 'https://sun9-20.userapi.com/impf/c855628/v855628629/147a89/mzpg71Q0aVo.jpg?size=200x0&quality=90&sign=7d6a7866cb8f9df1c8880b3398de0d4c&ava=1',
                     messageAuthorPage: '/profile/1257',
                     message: 'Окай',
@@ -43,12 +48,15 @@ const initialState = {
         {
             dialogInfo : {
                 dialogWithUserId: 8120,
+                dialogWithUserName: 'Александр Королев',
+                dialogWithUserAva: 'https://sun9-6.userapi.com/impf/c848736/v848736283/abeea/tc2iTb2To_k.jpg?size=200x0&quality=90&sign=a1aa31ec4208755be3a2c303a23e82b7&ava=1',
                 dialogPositionInArr: 1,
             },
             messages :[
                 {
                     messageAuthorId: 8120,
                     messageId: 11,
+                    dialogWithUserName: 'Александр Королев',
                     messageAuthorAva: 'https://sun9-6.userapi.com/impf/c848736/v848736283/abeea/tc2iTb2To_k.jpg?size=200x0&quality=90&sign=a1aa31ec4208755be3a2c303a23e82b7&ava=1',
                     messageAuthorPage: '/profile/8120',
                     message: 'Здаров',
@@ -58,6 +66,7 @@ const initialState = {
                 {
                     messageAuthorId: 11248,
                     messageId: 12,
+                    dialogWithUserName: 'DenielWeb',
                     messageAuthorAva: 'https://social-network.samuraijs.com/activecontent/images/users/11248/user-small.jpg?v=17',
                     messageAuthorPage: '/profile/11248',
                     message: 'React Js is awesome!',
@@ -67,6 +76,7 @@ const initialState = {
                 {
                     messageAuthorId: 8120,
                     messageId: 13,
+                    dialogWithUserName: 'Александр Королев',
                     messageAuthorAva: 'https://sun9-6.userapi.com/impf/c848736/v848736283/abeea/tc2iTb2To_k.jpg?size=200x0&quality=90&sign=a1aa31ec4208755be3a2c303a23e82b7&ava=1',
                     messageAuthorPage: '/profile/8120',
                     message: 'Даниил!',
@@ -79,12 +89,15 @@ const initialState = {
         {
             dialogInfo : {
                 dialogWithUserId: 4260,
+                dialogWithUserName: 'Владимир Семёнов',
+                dialogWithUserAva: 'https://sun9-6.userapi.com/c639326/v639326909/2d098/ffMN62yqdeQ.jpg?ava=1',
                 dialogPositionInArr: 2,
             },
             messages : [
                 {
                     messageAuthorId: 4260,
                     messageId: 901,
+                    dialogWithUserName: 'Владимир Семёнов',
                     messageAuthorAva: 'https://sun9-6.userapi.com/c639326/v639326909/2d098/ffMN62yqdeQ.jpg?ava=1',
                     messageAuthorPage: '/profile/4260',
                     message: 'Здаров',
@@ -94,6 +107,7 @@ const initialState = {
                 {
                     messageAuthorId: 11248,
                     messageId: 902,
+                    dialogWithUserName: 'DenielWeb',
                     messageAuthorAva: 'https://social-network.samuraijs.com/activecontent/images/users/11248/user-small.jpg?v=17',
                     messageAuthorPage: '/profile/11248',
                     message: 'React Js is awesome!',
@@ -103,10 +117,21 @@ const initialState = {
                 {
                     messageAuthorId: 4260,
                     messageId: 903,
+                    dialogWithUserName: 'Владимир Семёнов',
                     messageAuthorAva: 'https://sun9-6.userapi.com/c639326/v639326909/2d098/ffMN62yqdeQ.jpg?ava=1',
                     messageAuthorPage: '/profile/4260',
                     message: 'Стой, на жарку нарвешься',
                     messageDate: '01.03.2020 at 16:26'
+
+                },
+                {
+                    messageAuthorId: 11248,
+                    messageId: 902,
+                    dialogWithUserName: 'DenielWeb',
+                    messageAuthorAva: 'https://social-network.samuraijs.com/activecontent/images/users/11248/user-small.jpg?v=17',
+                    messageAuthorPage: '/profile/11248',
+                    message: 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.',
+                    messageDate: '02.03.2021 at 10:00'
 
                 }
             ]

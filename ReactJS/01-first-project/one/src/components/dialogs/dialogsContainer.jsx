@@ -2,9 +2,6 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withErrorBoundary } from "../hoc/errorBoundary/withErrorBoundary"
 
-import {
-  addDialog,
-} from '../../redux/dialogs-reducer';
 import {getAuthID} from '../../redux/auth-selectors'
 import { getDialogsData } from '../../redux/dialogs-selectors';
 import { withAuthRedirect } from '../hoc/withAuthRedirect';
@@ -20,6 +17,6 @@ let mapStateToProps = (state) => {
 
 export default compose (
     withErrorBoundary,
-    connect(mapStateToProps, {addDialog}),
+    connect(mapStateToProps, null),
     withAuthRedirect
 ) (Dialogs)

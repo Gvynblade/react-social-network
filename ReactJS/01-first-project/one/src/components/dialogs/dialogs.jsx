@@ -1,20 +1,18 @@
 import React from 'react';
 import Styles from './dialogs.module.css';
-import DialogsItem from './dialogs-item/dialogs-item';
+import DialogPrevue from './DialogPrevue/DialogPrevue';
 
 const Dialogs = (props) => {
 
   let dialogsElements = props.dialogsData.map( (d) => {
     return (
-      <DialogsItem
-        key={'dialog with user - ' + d.prev.id}
-        id={d.prev.id}
-        ava={d.prev.ava}
-        name={d.prev.name}
-        date={d.prev.date}
-        lastMsg={d.prev.lastMsg}
-        dialogarr={d.dialogarr}
-        addMessage={props.addDialog}
+      <DialogPrevue
+        key={'dialog with user - ' + d.dialogInfo.dialogWithUserId}
+        id={d.dialogInfo.dialogWithUserId}
+        ava={d.dialogInfo.dialogWithUserAva}
+        name={d.dialogInfo.dialogWithUserName}
+        lastMsg={d.messages[d.messages.length - 1]}
+        authUserId={props.authUserId}
       />
     );
   })
