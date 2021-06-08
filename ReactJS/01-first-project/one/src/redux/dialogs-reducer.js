@@ -1,4 +1,5 @@
 const ADD_DIALOG = 'dialogs-reducer/ADD-DIALOG';
+const DELETE_DIALOG = 'dialogs-reducer/DELETE_DIALOG'
 
 const initialState = {
 
@@ -135,6 +136,56 @@ const initialState = {
 
                 }
             ]
+        },
+        {
+            dialogInfo : {
+                dialogWithUserId: 426055,
+                dialogWithUserName: 'Владимир Семёнов',
+                dialogWithUserAva: 'https://sun9-6.userapi.com/c639326/v639326909/2d098/ffMN62yqdeQ.jpg?ava=1',
+                dialogPositionInArr: 3,
+            },
+            messages : [
+                {
+                    messageAuthorId: 426055,
+                    messageId: 90155,
+                    dialogWithUserName: 'Владимир Семёнов',
+                    messageAuthorAva: 'https://sun9-6.userapi.com/c639326/v639326909/2d098/ffMN62yqdeQ.jpg?ava=1',
+                    messageAuthorPage: '/profile/4260',
+                    message: 'Здаров',
+                    messageDate: '01.03.2021 at 09:26'
+
+                },
+                {
+                    messageAuthorId: 11248,
+                    messageId: 90255,
+                    dialogWithUserName: 'DenielWeb',
+                    messageAuthorAva: 'https://social-network.samuraijs.com/activecontent/images/users/11248/user-small.jpg?v=17',
+                    messageAuthorPage: '/profile/11248',
+                    message: 'React Js is awesome!',
+                    messageDate: '01.03.2021 at 10:30'
+
+                },
+                {
+                    messageAuthorId: 426055,
+                    messageId: 90355,
+                    dialogWithUserName: 'Владимир Семёнов',
+                    messageAuthorAva: 'https://sun9-6.userapi.com/c639326/v639326909/2d098/ffMN62yqdeQ.jpg?ava=1',
+                    messageAuthorPage: '/profile/4260',
+                    message: 'Стой, на жарку нарвешься',
+                    messageDate: '01.03.2020 at 16:26'
+
+                },
+                {
+                    messageAuthorId: 11248,
+                    messageId: 90255,
+                    dialogWithUserName: 'DenielWeb',
+                    messageAuthorAva: 'https://social-network.samuraijs.com/activecontent/images/users/11248/user-small.jpg?v=17',
+                    messageAuthorPage: '/profile/11248',
+                    message: 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.',
+                    messageDate: '02.03.2021 at 10:00'
+
+                }
+            ]
         }
     ]
 }
@@ -162,6 +213,17 @@ export const dialogsReducer = (state = initialState, action) => {
 
         }
 
+        case DELETE_DIALOG: {
+
+            let stateCopy = {...state};
+            stateCopy.dialogsData = [...state.dialogsData]
+            stateCopy.dialogsData.splice(action.payload, 1);
+            for (let i = action.payload; i < stateCopy.dialogsData.length; i++ ) {
+                stateCopy.dialogsData[i].dialogInfo.dialogPositionInArr -= 1;
+            }
+            return stateCopy
+        }
+
         default: return state;
     }
 
@@ -173,5 +235,10 @@ export const addDialog = (message) => ( {
     type: ADD_DIALOG,
     message
 } )
+
+export const deleteDialog = (index) => ({
+    type: DELETE_DIALOG,
+    payload: index
+})
 
 export default dialogsReducer;

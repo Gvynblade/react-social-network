@@ -2,7 +2,7 @@ import React from 'react';
 import Styles from './dialogs.module.css';
 import DialogPrevue from './DialogPrevue/DialogPrevue';
 
-const Dialogs = (props) => {
+const Dialogs = React.memo( (props) => {
 
   let dialogsElements = props.dialogsData.map( (d) => {
     return (
@@ -13,6 +13,8 @@ const Dialogs = (props) => {
         name={d.dialogInfo.dialogWithUserName}
         lastMsg={d.messages[d.messages.length - 1]}
         authUserId={props.authUserId}
+        deleteDialog={props.deleteDialog}
+        positionInArray={d.dialogInfo.dialogPositionInArr}
       />
     );
   })
@@ -25,6 +27,6 @@ const Dialogs = (props) => {
 
     </div>
   )
-}
+})
 
 export default Dialogs;

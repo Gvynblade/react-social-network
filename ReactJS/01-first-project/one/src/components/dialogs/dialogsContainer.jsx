@@ -6,6 +6,7 @@ import {getAuthID} from '../../redux/auth-selectors'
 import { getDialogsData } from '../../redux/dialogs-selectors';
 import { withAuthRedirect } from '../hoc/withAuthRedirect';
 import Dialogs from './dialogs';
+import { deleteDialog } from '../../redux/dialogs-reducer'
 
 
 let mapStateToProps = (state) => {
@@ -17,6 +18,6 @@ let mapStateToProps = (state) => {
 
 export default compose (
     withErrorBoundary,
-    connect(mapStateToProps, null),
+    connect(mapStateToProps, {deleteDialog}),
     withAuthRedirect
 ) (Dialogs)
