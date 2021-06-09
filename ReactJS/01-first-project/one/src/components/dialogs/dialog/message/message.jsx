@@ -1,15 +1,24 @@
 import React from 'react'
 import Styles from './message.module.css'
+import {NavLink} from 'react-router-dom';
 
 
 const Message = (props) => {
     return <div className={Styles.message}>
         <div className={`${Styles.message__item} ${props.isOwner ? Styles.owner : Styles.interlocutor}`}>
-            <img src={props.ava} alt={props.name} />
-            <div className={Styles.message__block}>
-                <span className={Styles.message__userName}>{props.name}</span>
-                <div className={Styles.message__text}>{props.message}</div>
+            <div className={Styles.message__column}>
+                <NavLink to={props.profileUrl}>
+                    <img className={Styles.message__ava} src={props.ava} alt={props.name} />
+                </NavLink>
                 <span className={Styles.message__date}>{props.date}</span>
+            </div>
+            <div className={Styles.message__column2}>
+                <span className={Styles.message__userName}>
+                    <NavLink to={props.profileUrl}>
+                        {props.name}
+                    </NavLink>
+                </span>
+                <div className={Styles.message__text}>{props.message}</div>
             </div>
         </div>
     </div>

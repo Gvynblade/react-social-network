@@ -15,6 +15,8 @@ import {
 import { getDialogsData } from '../../../redux/dialogs-selectors'
 import { getAuthProfile } from '../../../redux/auth-selectors'
 import Message from './message/message'
+import noPhoto from '../../../assets/img/user-no-photo.png'
+import { addMessage } from "../../../redux/dialogs-reducer"
 
 const minLenght3 = minLenghtCreator(3)
 const maxLenght500 = maxLenghtCreator(500)
@@ -22,12 +24,11 @@ const maxLenght500 = maxLenghtCreator(500)
 const Dialog = (props) => {
 
     let submit = (formData) => {
-        console.log(formData)
-        props.addMessage(formData.message)
+        props.addMessage(props.authUserProfile.userId, props.authUserProfile.fullName, ava, formData.message, dialogPositionInArr)
     }
 
-    let interlocutorID = props.match.params.interlocutorID;
     let dialogPositionInArr = props.match.params.dialogPosition
+    let ava = props.authUserProfile.photos.small ? props.authUserProfile.photos.small : noPhoto;
 
     let messagesElements = props.dialogsData[dialogPositionInArr].messages.map( (d) => {
       return (
@@ -88,5 +89,5 @@ let mapStateToProps = (state) => ({
 
 export default compose (
     withErrorBoundary,
-    connect(mapStateToProps, {})
+    connect(mapStateToProps, {addMessage})
 ) (Dialog)

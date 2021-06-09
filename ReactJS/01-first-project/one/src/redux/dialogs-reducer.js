@@ -1,4 +1,7 @@
-const ADD_DIALOG = 'dialogs-reducer/ADD-DIALOG';
+import { getDate } from '../utils/helpers/getdate'
+import { v4 as uuidv4 } from 'uuid';
+
+const ADD_MESSAGE = 'dialogs-reducer/ADD-DIALOG';
 const DELETE_DIALOG = 'dialogs-reducer/DELETE_DIALOG'
 
 const initialState = {
@@ -139,19 +142,19 @@ const initialState = {
         },
         {
             dialogInfo : {
-                dialogWithUserId: 426055,
-                dialogWithUserName: 'Владимир Семёнов',
-                dialogWithUserAva: 'https://sun9-6.userapi.com/c639326/v639326909/2d098/ffMN62yqdeQ.jpg?ava=1',
+                dialogWithUserId: 12240890,
+                dialogWithUserName: 'Сергей Шевченко',
+                dialogWithUserAva: 'https://sun1-19.userapi.com/s/v1/ig2/AyQeVL9haSZ5UN9fpPSGRiR1CCJL3FT7SC5j7EPZIUII2cdh0jqgkM28r2IIpLNqET1p674E38Em2vhKakzfvNv0.jpg?size=100x0&quality=96&crop=271,453,510,510&ava=1',
                 dialogPositionInArr: 3,
             },
             messages : [
                 {
-                    messageAuthorId: 426055,
+                    messageAuthorId: 12240890,
                     messageId: 90155,
-                    dialogWithUserName: 'Владимир Семёнов',
-                    messageAuthorAva: 'https://sun9-6.userapi.com/c639326/v639326909/2d098/ffMN62yqdeQ.jpg?ava=1',
+                    dialogWithUserName: 'Сергей Шевченко',
+                    messageAuthorAva: 'https://sun1-19.userapi.com/s/v1/ig2/AyQeVL9haSZ5UN9fpPSGRiR1CCJL3FT7SC5j7EPZIUII2cdh0jqgkM28r2IIpLNqET1p674E38Em2vhKakzfvNv0.jpg?size=100x0&quality=96&crop=271,453,510,510&ava=1',
                     messageAuthorPage: '/profile/4260',
-                    message: 'Здаров',
+                    message: 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.',
                     messageDate: '01.03.2021 at 09:26'
 
                 },
@@ -166,10 +169,10 @@ const initialState = {
 
                 },
                 {
-                    messageAuthorId: 426055,
+                    messageAuthorId: 12240890,
                     messageId: 90355,
-                    dialogWithUserName: 'Владимир Семёнов',
-                    messageAuthorAva: 'https://sun9-6.userapi.com/c639326/v639326909/2d098/ffMN62yqdeQ.jpg?ava=1',
+                    dialogWithUserName: 'Сергей Шевченко',
+                    messageAuthorAva: 'https://sun1-19.userapi.com/s/v1/ig2/AyQeVL9haSZ5UN9fpPSGRiR1CCJL3FT7SC5j7EPZIUII2cdh0jqgkM28r2IIpLNqET1p674E38Em2vhKakzfvNv0.jpg?size=100x0&quality=96&crop=271,453,510,510&ava=1',
                     messageAuthorPage: '/profile/4260',
                     message: 'Стой, на жарку нарвешься',
                     messageDate: '01.03.2020 at 16:26'
@@ -177,14 +180,44 @@ const initialState = {
                 },
                 {
                     messageAuthorId: 11248,
-                    messageId: 90255,
+                    messageId: 90254,
                     dialogWithUserName: 'DenielWeb',
                     messageAuthorAva: 'https://social-network.samuraijs.com/activecontent/images/users/11248/user-small.jpg?v=17',
                     messageAuthorPage: '/profile/11248',
                     message: 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.',
                     messageDate: '02.03.2021 at 10:00'
 
-                }
+                },
+                {
+                    messageAuthorId: 11248,
+                    messageId: 90256,
+                    dialogWithUserName: 'DenielWeb',
+                    messageAuthorAva: 'https://social-network.samuraijs.com/activecontent/images/users/11248/user-small.jpg?v=17',
+                    messageAuthorPage: '/profile/11248',
+                    message: 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.',
+                    messageDate: '02.03.2021 at 10:00'
+
+                },
+                {
+                    messageAuthorId: 12240890,
+                    messageId: 90351,
+                    dialogWithUserName: 'Сергей Шевченко',
+                    messageAuthorAva: 'https://sun1-19.userapi.com/s/v1/ig2/AyQeVL9haSZ5UN9fpPSGRiR1CCJL3FT7SC5j7EPZIUII2cdh0jqgkM28r2IIpLNqET1p674E38Em2vhKakzfvNv0.jpg?size=100x0&quality=96&crop=271,453,510,510&ava=1',
+                    messageAuthorPage: '/profile/4260',
+                    message: 'Стой, на жарку нарвешься',
+                    messageDate: '01.03.2020 at 16:26'
+
+                },
+                {
+                    messageAuthorId: 12240890,
+                    messageId: 90195,
+                    dialogWithUserName: 'Сергей Шевченко',
+                    messageAuthorAva: 'https://sun1-19.userapi.com/s/v1/ig2/AyQeVL9haSZ5UN9fpPSGRiR1CCJL3FT7SC5j7EPZIUII2cdh0jqgkM28r2IIpLNqET1p674E38Em2vhKakzfvNv0.jpg?size=100x0&quality=96&crop=271,453,510,510&ava=1',
+                    messageAuthorPage: '/profile/4260',
+                    message: 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.',
+                    messageDate: '01.03.2021 at 09:26'
+
+                },
             ]
         }
     ]
@@ -194,18 +227,22 @@ export const dialogsReducer = (state = initialState, action) => {
 
     switch (action.type) {
 
-        case ADD_DIALOG: {
+        case ADD_MESSAGE: {
+
+            let date = getDate()
 
             let stateCopy = {...state};
             stateCopy.dialogsData = [...state.dialogsData]
-            stateCopy.dialogsData[0].dialogarr = [...state.dialogsData[0].dialogarr]
-            stateCopy.dialogsData[0].dialogarr.push(
+            stateCopy.dialogsData[action.payload.dialogPositionInArr].messages = [...state.dialogsData[action.payload.dialogPositionInArr].messages]
+            stateCopy.dialogsData[action.payload.dialogPositionInArr].messages.push(
                 {
-                    messageAuthorId: 0,
-                    messageAuthorAva: '',
-                    messageAuthorPage: '',
-                    message: action.message,
-                    messageDate: ''
+                    messageAuthorId: action.payload.authorId,
+                    messageId: uuidv4(),
+                    dialogWithUserName: action.payload.authorName,
+                    messageAuthorAva: action.payload.ava,
+                    messageAuthorPage: '/profile/' + action.payload.authorId,
+                    message: action.payload.message,
+                    messageDate: `${date.date}.${date.month}.${date.year} at ${date.hour}:${date.minutes}`,
                 }
             )
 
@@ -231,9 +268,9 @@ export const dialogsReducer = (state = initialState, action) => {
 
 // action creators
 
-export const addDialog = (message) => ( {
-    type: ADD_DIALOG,
-    message
+export const addMessage = (authorId, authorName, ava, message, dialogPositionInArr) => ( {
+    type: ADD_MESSAGE,
+    payload: {authorId, authorName, ava, message, dialogPositionInArr}
 } )
 
 export const deleteDialog = (index) => ({

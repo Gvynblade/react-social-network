@@ -5,15 +5,88 @@
 
 .message__item{
     max-width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.message__ava{
+    border-radius: 50%;
+    width:80px;
+    height:80px;
+    object-fit: cover;
 }
 
 .message__item.owner{
-    background: green;
-    padding: 20px;
     margin-left:auto;
+    flex-direction: row-reverse;
 }
 
-.message__item.interlocutor{
-    background: #f0f0f0;
+.message__column{
+    width:80px;
+    text-align: center;
+}
+
+.message__column2{
     padding: 20px;
+    position: relative;
+    min-width: 260px;
+    margin-top: 20px;
+}
+
+.message__item.owner .message__column2{
+    background: #3f4257;
+    border-radius: 20px 0 20px 20px;
+    color:white;
+}
+
+.message__item.owner .message__column2:after{
+    content: '';
+    position: absolute;
+    border-left: 10px solid #3f4257;
+    border-bottom: 14px solid transparent;
+    top:0;
+    right: -10px;
+}
+
+.message__item.owner .message__column{
+    margin-left: 20px;
+}
+
+.message__item.interlocutor .message__column2{
+    background: #f0f0f0;
+    border-radius: 0 20px 20px 20px;
+}
+
+.message__item.interlocutor .message__column2:before{
+    content: '';
+    position: absolute;
+    border-right: 10px solid #f0f0f0;
+    border-bottom: 14px solid transparent;
+    top:0;
+    left: -10px;
+}
+
+.message__item.interlocutor .message__column{
+    display: block;
+    margin-right: 20px;
+}
+
+.message__userName{
+    font-weight: bolder;
+    display: block;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.20);
+}
+
+.message__userName a{
+    color: inherit;
+}
+
+.message__text{
+    padding: 10px 0;
+}
+
+.message__date{
+    color: #777;
+    font-size: 14px;
 }
