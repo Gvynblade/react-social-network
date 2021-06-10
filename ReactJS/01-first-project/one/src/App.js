@@ -47,7 +47,7 @@ class App extends React.Component {
                             { this.props.authUserId && <Route exact path="/" render={ () => <Redirect to="/profile" /> }/> }
                             <Route path="/profile/:userID?" render={ withSuspense(ProfileContainer) }/>
                             <Route exact path="/messages" render={ withSuspense(DialogsContainer) }/>
-                            <Route path="/messages/id-:interlocutorID?/:dialogPosition?" render={ withSuspense(Dialog) }/>
+                            <Route path="/messages/id-:dialogID?" render={ withSuspense(Dialog) }/>
                             <Route exact path="/friends" render={ withSuspense(Friends) }/>
                             <Route exact path="/users" render={ () => <UsersContainer /> }/>
                             <Route exact path="/login" render={ () => <Login /> }/>

@@ -9,6 +9,11 @@
     justify-content: space-between;
 }
 
+.message__item:hover .message__deleteBtn{
+    opacity: 1;
+    transition: opacity .5s;
+}
+
 .message__ava{
     border-radius: 50%;
     width:80px;
@@ -89,4 +94,12 @@
 .message__date{
     color: #777;
     font-size: 14px;
+}
+
+.message__deleteBtn{
+    position: absolute;
+    top:20px;
+    right:20px;
+    opacity: 0;
+    transition: opacity .5s;
 }

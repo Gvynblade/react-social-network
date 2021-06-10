@@ -1,18 +1,20 @@
 import { getDate } from '../utils/helpers/getdate'
 import { v4 as uuidv4 } from 'uuid';
+import { removeObjectFromArray } from '../utils/helpers/object-helpers'
 
 const ADD_MESSAGE = 'dialogs-reducer/ADD-DIALOG';
 const DELETE_DIALOG = 'dialogs-reducer/DELETE_DIALOG'
+const DELETE_MESSAGE = 'dialogs-reducer/DELETE_MESSAGE'
 
 const initialState = {
 
     dialogsData: [
         {
             dialogInfo : {
+                dialogId: 120,
                 dialogWithUserId: 1257,
                 dialogWithUserAva: 'https://sun9-20.userapi.com/impf/c855628/v855628629/147a89/mzpg71Q0aVo.jpg?size=200x0&quality=90&sign=7d6a7866cb8f9df1c8880b3398de0d4c&ava=1',
                 dialogWithUserName: 'Владимир Слепченков',
-                dialogPositionInArr: 0,
             },
             messages :[
                 {
@@ -51,10 +53,10 @@ const initialState = {
 
         {
             dialogInfo : {
+                dialogId: 121,
                 dialogWithUserId: 8120,
                 dialogWithUserName: 'Александр Королев',
                 dialogWithUserAva: 'https://sun9-6.userapi.com/impf/c848736/v848736283/abeea/tc2iTb2To_k.jpg?size=200x0&quality=90&sign=a1aa31ec4208755be3a2c303a23e82b7&ava=1',
-                dialogPositionInArr: 1,
             },
             messages :[
                 {
@@ -92,10 +94,10 @@ const initialState = {
 
         {
             dialogInfo : {
+                dialogId: 122,
                 dialogWithUserId: 4260,
                 dialogWithUserName: 'Владимир Семёнов',
                 dialogWithUserAva: 'https://sun9-6.userapi.com/c639326/v639326909/2d098/ffMN62yqdeQ.jpg?ava=1',
-                dialogPositionInArr: 2,
             },
             messages : [
                 {
@@ -130,7 +132,7 @@ const initialState = {
                 },
                 {
                     messageAuthorId: 11248,
-                    messageId: 902,
+                    messageId: 904,
                     dialogWithUserName: 'DenielWeb',
                     messageAuthorAva: 'https://social-network.samuraijs.com/activecontent/images/users/11248/user-small.jpg?v=17',
                     messageAuthorPage: '/profile/11248',
@@ -142,10 +144,10 @@ const initialState = {
         },
         {
             dialogInfo : {
+                dialogId: 123,
                 dialogWithUserId: 12240890,
                 dialogWithUserName: 'Сергей Шевченко',
                 dialogWithUserAva: 'https://sun1-19.userapi.com/s/v1/ig2/AyQeVL9haSZ5UN9fpPSGRiR1CCJL3FT7SC5j7EPZIUII2cdh0jqgkM28r2IIpLNqET1p674E38Em2vhKakzfvNv0.jpg?size=100x0&quality=96&crop=271,453,510,510&ava=1',
-                dialogPositionInArr: 3,
             },
             messages : [
                 {
@@ -233,6 +235,7 @@ export const dialogsReducer = (state = initialState, action) => {
 
             let stateCopy = {...state};
             stateCopy.dialogsData = [...state.dialogsData]
+            stateCopy.dialogsData[action.payload.dialogPositionInArr] = {...state.dialogsData[action.payload.dialogPositionInArr]}
             stateCopy.dialogsData[action.payload.dialogPositionInArr].messages = [...state.dialogsData[action.payload.dialogPositionInArr].messages]
             stateCopy.dialogsData[action.payload.dialogPositionInArr].messages.push(
                 {
@@ -246,6 +249,10 @@ export const dialogsReducer = (state = initialState, action) => {
                 }
             )
 
+            let currentDialog = {...stateCopy.dialogsData[action.payload.dialogPositionInArr]}
+            stateCopy.dialogsData.splice(action.payload.dialogPositionInArr, 1);
+            stateCopy.dialogsData = [currentDialog, ...stateCopy.dialogsData]
+
             return stateCopy;
 
         }
@@ -254,10 +261,19 @@ export const dialogsReducer = (state = initialState, action) => {
 
             let stateCopy = {...state};
             stateCopy.dialogsData = [...state.dialogsData]
-            stateCopy.dialogsData.splice(action.payload, 1);
-            for (let i = action.payload; i < stateCopy.dialogsData.length; i++ ) {
-                stateCopy.dialogsData[i].dialogInfo.dialogPositionInArr -= 1;
-            }
+            let dialogIndex = stateCopy.dialogsData.findIndex(d => d.dialogInfo.dialogId === action.payload)
+            stateCopy.dialogsData.splice(dialogIndex, 1);
+            
+            return stateCopy
+        }
+
+        case DELETE_MESSAGE: {
+            let stateCopy = {...state};
+            stateCopy.dialogsData = [...state.dialogsData]
+            stateCopy.dialogsData[action.payload.dialogPositionInArr] = {...state.dialogsData[action.payload.dialogPositionInArr]}
+            stateCopy.dialogsData[action.payload.dialogPositionInArr].messages = [...state.dialogsData[action.payload.dialogPositionInArr].messages]
+            stateCopy.dialogsData[action.payload.dialogPositionInArr].messages = removeObjectFromArray(state.dialogsData[action.payload.dialogPositionInArr].messages, action.payload.messageId, 'messageId')
+
             return stateCopy
         }
 
@@ -273,9 +289,14 @@ export const addMessage = (authorId, authorName, ava, message, dialogPositionInA
     payload: {authorId, authorName, ava, message, dialogPositionInArr}
 } )
 
-export const deleteDialog = (index) => ({
+export const deleteDialog = (dialogID) => ({
     type: DELETE_DIALOG,
-    payload: index
+    payload: dialogID
+})
+
+export const deleteMessage = (messageId, dialogPositionInArr) => ({
+    type: DELETE_MESSAGE,
+    payload: {messageId, dialogPositionInArr}
 })
 
 export default dialogsReducer;

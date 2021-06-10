@@ -3,6 +3,7 @@ import Styles from './message.module.css'
 import {NavLink} from 'react-router-dom';
 
 
+
 const Message = (props) => {
     return <div className={Styles.message}>
         <div className={`${Styles.message__item} ${props.isOwner ? Styles.owner : Styles.interlocutor}`}>
@@ -19,6 +20,9 @@ const Message = (props) => {
                     </NavLink>
                 </span>
                 <div className={Styles.message__text}>{props.message}</div>
+                { props.isOwner && <button className={Styles.message__deleteBtn} onClick={() => {
+                    props.deleteMessage(props.id, props.positionInArray)
+                }}>delete</button> }
             </div>
         </div>
     </div>

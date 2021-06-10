@@ -5,7 +5,7 @@ import Styles from './DialogPrevue.module.css';
 
 const DialogPrevue = (props) => {
 
-    let path = "/messages/id-" + props.id + "/" + props.positionInArray;
+    let path = "/messages/id-" + props.id;
 
     return (
         <div className={Styles.dialog}>
@@ -24,7 +24,7 @@ const DialogPrevue = (props) => {
 
             <div className={Styles.dialog__column2}>
                 <span className={Styles.dialog__date}>{props.lastMsg.messageDate}</span>
-                <button className={Styles.deleteBtn} onClick={ () => props.deleteDialog(props.positionInArray)}>Delete</button>
+                <button className={Styles.deleteBtn} onClick={ () => props.deleteDialog(props.id)}>Delete</button>
 
             </div>
 
