@@ -26,7 +26,7 @@ const SearchForm = (props) => {
     return <form onSubmit={handleSubmit} className={Styles.searchForm}>
 
         <Field name={"searchPhraze"} component="input" className={Styles.searchForm__input} placeholder={"Search..."} validate={[requiredField, minLenght2]}/>
-        <button type={"submit"} className={Styles.searchForm__btn} >go</button>
+        <button type={"submit"} className={Styles.searchForm__btn} ><i className="fa fa-search" aria-hidden="true"></i></button>
 
     </form>
 }

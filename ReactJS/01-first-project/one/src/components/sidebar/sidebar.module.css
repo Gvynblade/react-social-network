@@ -8,63 +8,164 @@
   margin:0;
 }
 
-.sidebarNavblock li a {
-    display: block;
-    background:rgba(255,255,255,0.6);
-    padding: 10px 20px;
+.sidebarNavblock li{
+    position: relative;
+    display: flex;
+    align-items: center;
     margin-bottom:5px;
+}
+
+.sidebarNavblock li a {
+    flex-grow: 1;
+    display: block;
+    background:var(--main-bg-light);
+    padding: 10px 20px;
     border: 2px solid #e6ecf5;
-    color:#222;
+    color:var(--heading-color);
     font-weight: 200;
     text-transform: uppercase;
+    transition: background .5s;
+}
+
+
+.sidebarNavblock li a:hover, .sidebarNavblock li .active{
+    background: rgba(255,255,255,0.2);
+    transition: background .5s;
+}
+
+.sidebarNavblock li a:before{
+    font-family: var(--fontAwesome);
+    margin-right: 10px;
+    display: inline-flex;
+    min-width: 20px;
+    justify-content: center;
+    transition: color .5s;
+}
+
+.sidebarNavblock li a:hover:before, .sidebarNavblock li .active:before{
+    color: var(--blue);
+    transition: color .5s;
+}
+
+.newMessagesCount{
+    position: absolute;
+    line-height: 1;
+    right: 10px;
+    font-size: 0.8rem;
+    width:25px;
+    line-height:25px;
+    background: var(--violet);
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+}
+
+.profile:before{
+    content: '\f007';
+}
+
+.feed:before{
+    content: '\f1ea';
+}
+
+.messages:before{
+    content: '\f086';
+}
+
+.friends:before{
+    content: '\f0c0';
+}
+
+.settings:before{
+    content: '\f085';
 }
 
 .sidebarBlock{
     margin-top:20px;
-    background:rgba(255,255,255,0.6);
-    border: 2px solid #e6ecf5;
     position: relative;
 }
 
 .sidebarBlock__title{
-    padding: 15px 20px;
-    border-bottom: 2px solid #e6ecf5;
+    padding-bottom: 5px;
+    color: var(--heading-color);
+    border-bottom: 2px solid var(--icon-color);
+    text-transform: uppercase;
+}
+
+.sidebarBlock__btn{
+    position: absolute;
+    display: block;
+    top:0;
+    right:0;
+    background: var(--icon-color);
+    padding:0 10px;
+    line-height: 27px;
+    color: white !important;
+    font-size: 0.85rem;
+}
+
+.sidebarBlock__btn:before{
+    content: '';
+    position: absolute;
+    top:0;
+    left:-20px;
+    border-right: 20px solid var(--icon-color);
+    border-top: 28px solid transparent;
+}
+
+.sidebarBlock__btn:after{
+    content: '\f0da';
+    font-family: var(--fontAwesome);
+    padding-left:10px;
 }
 
 .sidebarBlock__content{
-    padding: 15px 20px;
+    overflow: hidden;
+    margin-top: 15px;
 }
 
 .sidebarBlock__friendsList{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin: 0 -10px;
 }
 
 .sidebarBlock__friend{
-    width:30%;
-    text-align: center;
-    margin: 5px 0;
-    word-wrap: break-word;
+    width:75px;
+    height: 75px;
+    margin-bottom: 4%;
+    position: relative;
+}
+
+.sidebarBlock__friend:hover .sidebarBlock__friendName{
+    opacity: 1;
+    transition: opacity .5s;
 }
 
 .sidebarBlock__friend img {
     width:100%;
+    height:100%;
+    object-fit: cover;
     border-radius: 50%;
 }
 
 .sidebarBlock__friendName{
-    font-weight: 200;
-    color: #2a5885;
-}
-
-.sidebarBlock__btn{
     position: absolute;
-    display: block;
-    top:11px;
-    right:10px;
-    background: #f0f0f0;
-    padding: 5px 10px;
-    color: #222 !important;
+    border-radius: 50%;
+    overflow: hidden;
+    top:0;
+    width:100%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding:0 5px;
+    word-wrap: break-word;
+    word-break: break-all;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    color:white;
+    line-height: 1.1;
+    transition: opacity .5s;
 }

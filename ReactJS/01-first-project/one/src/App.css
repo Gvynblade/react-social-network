@@ -1,13 +1,12 @@
-html, body{
+body{
     padding:0;
-    margin:0;
-    background:#edf2f6;
+    background:var(--body-bg);
     overflow-x: hidden;
 }
 
 a, a:visited {
     text-decoration:none;
-    color:orange;
+    color:var(--link-color);
 }
 
 *{
@@ -22,7 +21,7 @@ a, a:visited {
     "header header header"
     "sidebar content content"
     "footer footer footer";
-    grid-template-rows: 60px 1fr 40px;
+    grid-template-rows: 60px 1fr 100px;
     grid-template-columns: 2.5fr 9.5fr;
     grid-gap:20px;
     min-height: 100vh;

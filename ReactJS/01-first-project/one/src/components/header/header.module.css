@@ -1,7 +1,7 @@
 
 .header{
   grid-area: header;
-  background:#3f4257;
+  background:var(--main-bg-dark);
   padding:10px 0;
   display: flex;
   align-items: center;
@@ -15,7 +15,7 @@
     right:100%;
     width: 2000%;
     height:60px;
-    background:#3f4257;
+    background:var(--main-bg-dark);
 }
 
 .header:after{
@@ -25,11 +25,11 @@
     left: 100%;
     width: 2000%;
     height:60px;
-    background:#3f4257;
+    background:var(--main-bg-dark);
 }
 
 .header a{
-  color:gold;
+  color:var(--header-nav-color);
 }
 
 .header a.active{
@@ -59,6 +59,33 @@ width:50px;
 height:auto;
 }
 
+.navlink{
+    color: white !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:60px;
+    padding: 0 20px;
+    transition: all .5s;
+}
+
+.navlink:hover{
+    background: rgba(255,255,255,0.1);
+    color: var(--header-nav-color) !important;
+    transition: all .5s;
+}
+
+.allUsers{
+    margin-left:-20px;
+}
+
+.allUsers:before{
+    content: '\f0c0';
+    font-family: var(--fontAwesome);
+    padding-right: 10px;
+
+}
+
 .loginBlock{
     margin-left: auto;
     color: white;
@@ -76,4 +103,28 @@ height:auto;
 .profileName{
     margin-left:20px;
     font-size:1.2rem;
+}
+
+.settings{
+    font-size: 1.3rem;
+    margin-left:20px;
+}
+
+.login{
+    display: flex;
+    align-items: center;
+}
+
+.login:before{
+    content: '\f011';
+    font-family: var(--fontAwesome);
+    padding-right: 10px;
+    font-weight: 1.5rem;
+    margin-top:2px;
+}
+
+.logout{
+    border:none;
+    background: transparent;
+    font-size: 1.3rem;
 }

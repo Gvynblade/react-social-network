@@ -24,7 +24,7 @@ const Sidebar = React.memo((props) => {
     let friendsList = [];
 
     props.friends.forEach(function(item, i, arr) {
-        if (i < 9) {
+        if (i < 12) {
             friendsList = [...friendsList, item]
         }
     });
@@ -41,17 +41,20 @@ const Sidebar = React.memo((props) => {
     return(
         <div className={Styles.sidebar}>
             <ul className={Styles.sidebarNavblock}>
-                <li><NavLink to="/profile" activeClassName={Styles.active}>My Profile</NavLink></li>
-                <li><NavLink to="/feed" activeClassName={Styles.active}>News feed</NavLink></li>
-                <li><NavLink to="/messages" activeClassName={Styles.active}>Messages</NavLink></li>
-                <li><NavLink to="/friends" activeClassName={Styles.active}>Friends</NavLink></li>
-                <li><NavLink to="/settings" activeClassName={Styles.active}>Settings</NavLink></li>
+                <li><NavLink to="/profile" className={Styles.profile} activeClassName={Styles.active}>My Profile</NavLink></li>
+                <li><NavLink to="/feed" className={Styles.feed} activeClassName={Styles.active}>News feed</NavLink></li>
+                <li>
+                    <NavLink to="/messages" className={Styles.messages} activeClassName={Styles.active}>Messages</NavLink>
+                    <span className={Styles.newMessagesCount}>2</span>
+                </li>
+                <li><NavLink to="/friends" className={Styles.friends} activeClassName={Styles.active}>Friends</NavLink></li>
+                <li><NavLink to="/settings" className={Styles.settings} activeClassName={Styles.active}>Settings</NavLink></li>
             </ul>
 
             <div className={Styles.sidebarBlock}>
                 <div className={Styles.sidebarBlock__title}>
                     Friends: {props.totalFriendsCount}
-                    <NavLink to={'/friends/'} className={Styles.sidebarBlock__btn}>Show all</NavLink>
+                    <NavLink to={'/friends/'} className={Styles.sidebarBlock__btn}>All</NavLink>
                 </div>
                 <div className={Styles.sidebarBlock__content}>
                     <div className={Styles.sidebarBlock__friendsList}>

@@ -14,7 +14,7 @@ const Header = (props) => {
             <li>
                 <SearchBar requestSearchResults={props.requestSearchResults} removeSearchData={props.removeSearchData}/>
             </li>
-            <li><NavLink to="/users" activeClassName={Styles.active}>All Users</NavLink></li>
+            <li><NavLink to="/users" className={`${Styles.navlink} ${Styles.allUsers}`} activeClassName={Styles.active}>All Users</NavLink></li>
         </ul>
 
     if (props.isAuth) {
@@ -36,7 +36,9 @@ const Header = (props) => {
 
                     </div>
 
-                    <button className={Styles.logout} onClick={ props.UserLogout } >Выход</button>
+                    <NavLink className={`${Styles.navlink} ${Styles.settings}`} to="/settings"><i className="fa fa-cog" aria-hidden="true"></i></NavLink>
+
+                    <button className={`${Styles.navlink} ${Styles.logout}`} onClick={ props.UserLogout } ><i className="fa fa-sign-out" aria-hidden="true"></i></button>
 
 
                 </div>
@@ -54,7 +56,7 @@ const Header = (props) => {
 
             <div className={Styles.loginBlock}>
 
-                <NavLink to="/login">Login</NavLink>
+                <NavLink className={`${Styles.navlink} ${Styles.login}`} to="/login" title="login">Login</NavLink>
 
             </div>
 
