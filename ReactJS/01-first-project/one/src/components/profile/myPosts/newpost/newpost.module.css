@@ -1,27 +1,72 @@
 .newpost {
-  margin-top: 20px;
-  padding: 20px;
-  background: #fff;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap; }
+    margin-top: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    background: var(--main-bg-light);
+    padding:20px;
+    border-radius:20px;
+}
 
 .ava {
-  display: block;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin-right: 20px;
-  border: 3px solid #d0d0d0; }
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 30px;
+}
 
 .addPostForm{
-    display: flex;
+    background: var(--border-color);
+    padding:15px;
     flex-grow: 1;
+    border-radius: 20px;
+    position: relative;
+}
+
+.addPostForm:before{
+    content: '';
+    position: absolute;
+    top:40px;
+    left:-10px;
+    border-right: 10px solid var(--border-color);
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
 }
 
 .messageField {
-  -webkit-box-flex: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1; }
+    border:none;
+    background: none;
+    resize:none;
+}
+
+.messageField:focus{
+    outline:none;
+}
+
+.addPostBtn{
+    float:right;
+    margin-top:10px;
+    background: var(--main-bg-dark);
+    border: none;
+    padding: 10px 30px;
+    color:white;
+    text-transform: uppercase;
+    opacity: 0.8;
+    border-radius:20px;
+    transition: background .5s;
+}
+
+.addPostBtn:after{
+    content: '\f1d8';
+    font-family: var(--fontAwesome);
+    margin-left: 10px;
+}
+
+.addPostBtn:hover{
+    background: var(--violet);
+    opacity: 1;
+    transition: background .5s;
+}

@@ -110,7 +110,7 @@
     top:0;
     left:-20px;
     border-right: 20px solid var(--icon-color);
-    border-top: 28px solid transparent;
+    border-top: 27px solid transparent;
 }
 
 .sidebarBlock__btn:after{

@@ -33,8 +33,8 @@ const NewPostForm = (props) => {
     const { handleSubmit } = props
     return <form onSubmit={handleSubmit} className={Styles.addPostForm}>
 
-        <Field name={"message"} component={Textarea} placeholder={"Что у вас нового?"} validate={[requiredField, minLenght3, maxLenght500]}/>
-        <button type={"submit"} className={Styles.addPostBtn} >Опубликовать</button>
+        <Field name={"message"} component={Textarea} placeholder={"What's happening?"} validate={[requiredField, minLenght3, maxLenght500]} className={Styles.messageField}/>
+        <button type={"submit"} className={Styles.addPostBtn} >Add Post</button>
 
     </form>
 }

@@ -13,7 +13,7 @@ const Post = (props) => {
 
                 {props.isOwner && <button className={Styles.post__deleteBtn} onClick={() => {
                     props.deletePost(props.id)
-                }}>Delete</button> }
+                }} title="Delete post"><i class="fa fa-trash-o" aria-hidden="true"></i></button> }
             </div>
 
             <div className={Styles.post__message}>
@@ -21,9 +21,9 @@ const Post = (props) => {
             </div>
 
             <div className={Styles.post__footer}>
-                <button onClick={() => {
+                <button className={Styles.post__like} onClick={() => {
                     props.updatelikesCount(props.id, props.likesCount + 1)
-                }}>Likes</button> : {props.likesCount}
+                }}><i class="fa fa-heart" aria-hidden="true"></i></button> {props.likesCount}
                 </div>
             </div>
         )

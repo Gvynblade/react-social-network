@@ -1,8 +1,9 @@
 .post{
-  background:#fff;
+  background:var(--main-bg-light);
   border-radius:20px;
   margin-top:10px;
   padding:20px;
+  border: var(--border);
 }
 
 .post__header{
@@ -17,15 +18,15 @@
   height:80px;
   border-radius:50%;
   margin-right:20px;
-  border:3px solid #d0d0d0;
 }
 
 .post__name{
   font-weight:bold;
+  color: var(--heading-color);
 }
 
 .post__date{
-  color:#a0a0a0;
+  color: var(--icon-color);
   font-style: italic;
 }
 
@@ -34,6 +35,15 @@
     visibility: hidden;
     opacity: 0;
     transition: opacity .5s;
+    border:none;
+    padding:10px;
+    background: none;
+    font-size: 22px;
+    color:var(--icon-color);
+}
+
+.post__deleteBtn:hover{
+    color: var(--heading-color);
 }
 
 .post:hover .post__deleteBtn{
@@ -43,14 +53,31 @@
 
 
 .post__message{
-  color:#333;
+  color: #4f536d;
   line-height:22px;
-  font-family: monospace;
   font-size:16px;
 }
 
 .post__footer{
   margin-top:20px;
   padding-top:20px;
-  border-top: 1px solid #d0d0d0;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+}
+
+.post__like{
+    border:none;
+    background: none;
+    font-size: 20px;
+    color:var(--icon-color);
+    margin-right:10px;
+    margin-top:-5px;
+    transition: all .5s;
+}
+
+.post__like:hover{
+    transform: scale(1.2);
+    color:var(--icon-active-color);
+    transition: all .5s;
 }
