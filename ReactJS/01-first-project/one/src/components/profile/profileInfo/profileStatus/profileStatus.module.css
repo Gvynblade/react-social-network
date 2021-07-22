@@ -1,3 +1,9 @@
 .Status__edit{
     width:100%;
 }
+
+.Status__block{
+    color: var(--icon-color);
+    cursor: pointer;
+    position: relative;
+}

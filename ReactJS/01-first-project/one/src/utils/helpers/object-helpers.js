@@ -14,3 +14,11 @@ export const removeObjectFromArray = (items, itemID, objectPropName) => {
         return i[objectPropName] !== itemID
     })
 }
+
+export const cleanEmptyInObject = (obj) => {
+    for (let propName in obj) {
+        if (obj[propName] === null || obj[propName] === undefined || obj[propName].length === 0) {
+            delete obj[propName];
+        }
+    }
+}

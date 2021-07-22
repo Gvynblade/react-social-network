@@ -15,7 +15,7 @@ const Footer = () => {
                 </a>
 
                 <a href="https://github.com/Gvynblade" className={Styles.footer__socialItem} target="_blank" rel="noreferrer">
-                    <i class="fa fa-github" aria-hidden="true"></i>
+                    <i className="fa fa-github" aria-hidden="true"></i>
                 </a>
             </div>
         </div>

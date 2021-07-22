@@ -19,7 +19,7 @@ const UPDATE_POST_LIKESCOUNT = 'profile-reducer/UPDATE_POST_LIKESCOUNT'
 const initialState = {
 
     profile: {
-        defaultBgImg: 'https://d1lx3ohi20yyaq.cloudfront.net/file/pic/photo/2018/10/cab54266980bde39098ecd146f04761c_1024.jpg',
+        defaultBgImg: 'http://st.gde-fon.com/wallpapers_original/537436_goryi_step_panorama_5312x1874_www.Gde-Fon.com.jpg',
         bgimg: null
 
     },
